@@ -1,0 +1,72 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcscmblueprint
+
+# Swift Package Manager
+/.swiftpm
+Package.resolved
+
+# CocoaPods
+Pods/
+*.xcworkspace
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
+# Temporary files
+*.lock
+*.tmp
+*.swp
+*.swo
+*.swn
+
+# Archives
+*.ipa
+*.xcarchive
+
+# SwiftUI Previews
+.swiftpm/xcode/xcshareddata/swiftui/
+
+# Logs
+*.log
+*.trace
+
+# Simulator Devices
+Library/Developer/CoreSimulator/Devices/
+
+# Firebase
+GoogleService-Info.plist
+
+# Xcode Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Tuist
+/.tuist/
