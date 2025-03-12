@@ -2,7 +2,21 @@
 //  LoadingView.swift
 //  Awi-SwiftUI
 //
-//  Created by etud on 12/03/2025.
+//  A reusable loading indicator view to show while data is being fetched.
 //
 
-import Foundation
+import SwiftUI
+
+struct LoadingView: View {
+    var body: some View {
+        ProgressView("Loading...")
+            .progressViewStyle(CircularProgressViewStyle())
+            .padding()
+    }
+}
+
+struct LoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoadingView()
+    }
+}

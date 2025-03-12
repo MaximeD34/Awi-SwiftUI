@@ -2,7 +2,28 @@
 //  Endpoints.swift
 //  Awi-SwiftUI
 //
-//  Created by etud on 12/03/2025.
+//  Contains the definitions of RESTful endpoints used by the APIClient.
+//  Adjust the endpoints according to your backend's specification.
 //
 
 import Foundation
+
+struct Endpoints {
+    
+    static let baseURL = URL(string: Constants.API_BASE_URL)!
+
+    
+    static var login: URL {
+        return baseURL.appendingPathComponent("auth/login")
+    }
+    
+    static var games: URL {
+        return baseURL.appendingPathComponent("games")
+    }
+    
+    static func seller(withID id: UUID) -> URL {
+        return baseURL.appendingPathComponent("sellers/\(id.uuidString)")
+    }
+    
+    // Define other endpoints as needed.
+}

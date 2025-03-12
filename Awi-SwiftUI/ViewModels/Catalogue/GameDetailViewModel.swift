@@ -2,7 +2,11 @@
 //  GameDetailViewModel.swift
 //  Awi-SwiftUI
 //
-//  Created by etud on 12/03/2025.
+//  Provides additional logic for a specific game's details if needed.
 //
 
 import Foundation
+
+class GameDetailViewModel: ObservableObject {
+    // Add any additional business logic for game details.
+}

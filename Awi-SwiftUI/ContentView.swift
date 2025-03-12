@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Injecting the login view model as a state object.
+    @StateObject private var loginVM = LoginViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            if loginVM.isAuthenticated {
+                ManagerDashboardView()  // The main screen after login
+            } else {
+                
+                LoginView()
+            }
         }
-        .padding()
     }
 }
 
