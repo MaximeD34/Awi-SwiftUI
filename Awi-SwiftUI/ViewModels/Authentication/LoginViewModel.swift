@@ -11,8 +11,8 @@ import Combine
 
 class LoginViewModel: ObservableObject {
     // Published properties update the UI in response to changes.
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "Admin"
+    @Published var password: String = "adminpassword"
     @Published var isAuthenticated: Bool = false
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -24,17 +24,13 @@ class LoginViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        print("test login")
-        
         authService.login(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 switch result {
-                case .success(let user):
+                case .success(_):
                     // Update auth state based on the logged in user.
-                    print("yay")
                     self?.isAuthenticated = true
-                    print(self?.isAuthenticated)
                     
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription

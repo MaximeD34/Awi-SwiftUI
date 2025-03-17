@@ -17,8 +17,7 @@ struct SellerDetailView: View {
             Text(seller.name)
                 .font(.largeTitle)
             // Display additional seller details here.
-            Text("Seller ID: \(seller.id.uuidString)")
-                .font(.subheadline)
+        
             Spacer()
         }
         .padding()
@@ -29,10 +28,3 @@ struct SellerDetailView: View {
     }
 }
 
-struct SellerDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Provide a sample seller for preview purposes.
-        let sampleSeller = Seller(id: UUID(), name: "Sample Seller", assignedManagerID: UUID())
-        SellerDetailView(seller: sampleSeller)
-    }
-}

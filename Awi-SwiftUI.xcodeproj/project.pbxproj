@@ -14,8 +14,17 @@
 		B72DCB8A2D81751D00C6AD7D /* Awi_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72DCB892D81751D00C6AD7D /* Awi_SwiftUITests.swift */; };
 		B72DCB942D81751D00C6AD7D /* Awi_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72DCB932D81751D00C6AD7D /* Awi_SwiftUIUITests.swift */; };
 		B72DCB962D81751D00C6AD7D /* Awi_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72DCB952D81751D00C6AD7D /* Awi_SwiftUIUITestsLaunchTests.swift */; };
+		B750F0162D881FA500AFD59D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F0152D881FA500AFD59D /* RootView.swift */; };
+		B750F0192D8824C100AFD59D /* MakeNewSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F0182D8824C100AFD59D /* MakeNewSaleView.swift */; };
+		B750F01D2D88252000AFD59D /* ManageSellersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F01C2D88252000AFD59D /* ManageSellersView.swift */; };
+		B750F01F2D88253400AFD59D /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F01E2D88253400AFD59D /* CollectionView.swift */; };
+		B750F0222D88255F00AFD59D /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F0212D88255F00AFD59D /* StatisticsView.swift */; };
+		B750F0242D882E5B00AFD59D /* GameItemInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F0232D882E5B00AFD59D /* GameItemInstance.swift */; };
+		B750F0262D882E9A00AFD59D /* GameItemInstanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F0252D882E9A00AFD59D /* GameItemInstanceService.swift */; };
+		B750F0292D882EC600AFD59D /* MakeNewSaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F0282D882EC600AFD59D /* MakeNewSaleViewModel.swift */; };
+		B750F02B2D886C8300AFD59D /* PurchaseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F02A2D886C8300AFD59D /* PurchaseDto.swift */; };
+		B750F02F2D886D4500AFD59D /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750F02E2D886D4500AFD59D /* PurchaseService.swift */; };
 		B76512502D81800F0087C97E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B765124F2D81800F0087C97E /* User.swift */; };
-		B76512522D81802E0087C97E /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76512512D81802E0087C97E /* Seller.swift */; };
 		B76512542D81804C0087C97E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76512532D81804C0087C97E /* Transaction.swift */; };
 		B76512582D8180930087C97E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76512572D8180930087C97E /* LoginView.swift */; };
 		B765125B2D8180C30087C97E /* AdminDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B765125A2D8180C30087C97E /* AdminDashboardView.swift */; };
@@ -76,8 +85,17 @@
 		B72DCB8F2D81751D00C6AD7D /* Awi-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Awi-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72DCB932D81751D00C6AD7D /* Awi_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awi_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		B72DCB952D81751D00C6AD7D /* Awi_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awi_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B750F0152D881FA500AFD59D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B750F0182D8824C100AFD59D /* MakeNewSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewSaleView.swift; sourceTree = "<group>"; };
+		B750F01C2D88252000AFD59D /* ManageSellersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSellersView.swift; sourceTree = "<group>"; };
+		B750F01E2D88253400AFD59D /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		B750F0212D88255F00AFD59D /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		B750F0232D882E5B00AFD59D /* GameItemInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemInstance.swift; sourceTree = "<group>"; };
+		B750F0252D882E9A00AFD59D /* GameItemInstanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemInstanceService.swift; sourceTree = "<group>"; };
+		B750F0282D882EC600AFD59D /* MakeNewSaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewSaleViewModel.swift; sourceTree = "<group>"; };
+		B750F02A2D886C8300AFD59D /* PurchaseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDto.swift; sourceTree = "<group>"; };
+		B750F02E2D886D4500AFD59D /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
 		B765124F2D81800F0087C97E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B76512512D81802E0087C97E /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		B76512532D81804C0087C97E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		B76512572D8180930087C97E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B765125A2D8180C30087C97E /* AdminDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboardView.swift; sourceTree = "<group>"; };
@@ -198,13 +216,38 @@
 			path = "Awi-SwiftUIUITests";
 			sourceTree = "<group>";
 		};
+		B750F0172D8824B300AFD59D /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				B750F0182D8824C100AFD59D /* MakeNewSaleView.swift */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
+		B750F0202D88255300AFD59D /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				B750F0212D88255F00AFD59D /* StatisticsView.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		B750F0272D882EBB00AFD59D /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				B750F0282D882EC600AFD59D /* MakeNewSaleViewModel.swift */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
 		B765124E2D817FE70087C97E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B765124F2D81800F0087C97E /* User.swift */,
-				B76512512D81802E0087C97E /* Seller.swift */,
 				B76512532D81804C0087C97E /* Transaction.swift */,
 				B76512982D8184740087C97E /* Game.swift */,
+				B750F0232D882E5B00AFD59D /* GameItemInstance.swift */,
+				B750F02A2D886C8300AFD59D /* PurchaseDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +255,8 @@
 		B76512552D8180620087C97E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B750F0202D88255300AFD59D /* Session */,
+				B750F0172D8824B300AFD59D /* Sales */,
 				B765126A2D8181BB0087C97E /* Components */,
 				B76512632D81813D0087C97E /* Sellers */,
 				B765125E2D8180FE0087C97E /* Catalogue */,
@@ -225,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				B76512572D8180930087C97E /* LoginView.swift */,
+				B750F0152D881FA500AFD59D /* RootView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -243,6 +289,7 @@
 			children = (
 				B765125F2D8181120087C97E /* CatalogueView.swift */,
 				B76512612D81812D0087C97E /* GameDetailView.swift */,
+				B750F01E2D88253400AFD59D /* CollectionView.swift */,
 			);
 			path = Catalogue;
 			sourceTree = "<group>";
@@ -253,6 +300,7 @@
 				B76512642D81814B0087C97E /* SellerListView.swift */,
 				B76512662D81816A0087C97E /* SellerDetailView.swift */,
 				B76512682D8181820087C97E /* SellerEditView.swift */,
+				B750F01C2D88252000AFD59D /* ManageSellersView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -269,6 +317,7 @@
 		B765126F2D8181F50087C97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B750F0272D882EBB00AFD59D /* Sales */,
 				B765127D2D8182920087C97E /* Sellers */,
 				B76512782D8182570087C97E /* Catalogue */,
 				B76512732D81821F0087C97E /* Dashboard */,
@@ -328,6 +377,8 @@
 				B765128B2D8183330087C97E /* AuthService.swift */,
 				B765128D2D8183680087C97E /* GameService.swift */,
 				B765128F2D8183770087C97E /* SellerService.swift */,
+				B750F0252D882E9A00AFD59D /* GameItemInstanceService.swift */,
+				B750F02E2D886D4500AFD59D /* PurchaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -480,20 +531,24 @@
 				B765127A2D8182630087C97E /* CatalogueViewModel.swift in Sources */,
 				B72DCB792D81751B00C6AD7D /* Awi_SwiftUIApp.swift in Sources */,
 				B76512932D8183940087C97E /* Constants.swift in Sources */,
+				B750F02B2D886C8300AFD59D /* PurchaseDto.swift in Sources */,
 				B765127C2D8182810087C97E /* GameDetailViewModel.swift in Sources */,
 				B76512622D81812D0087C97E /* GameDetailView.swift in Sources */,
 				B76512722D8182090087C97E /* LoginViewModel.swift in Sources */,
 				B765125D2D8180E40087C97E /* ManagerDashboardView.swift in Sources */,
 				B765126C2D8181C80087C97E /* LoadingView.swift in Sources */,
-				B76512522D81802E0087C97E /* Seller.swift in Sources */,
 				B76512672D81816A0087C97E /* SellerDetailView.swift in Sources */,
 				B765128E2D8183680087C97E /* GameService.swift in Sources */,
 				B76512602D8181120087C97E /* CatalogueView.swift in Sources */,
 				B76512772D8182420087C97E /* ManagerDashboardViewModel.swift in Sources */,
+				B750F01D2D88252000AFD59D /* ManageSellersView.swift in Sources */,
+				B750F01F2D88253400AFD59D /* CollectionView.swift in Sources */,
 				B76512502D81800F0087C97E /* User.swift in Sources */,
 				B765127F2D81829D0087C97E /* SellerListViewModel.swift in Sources */,
 				B765126E2D8181DC0087C97E /* ErrorView.swift in Sources */,
 				B76512902D8183770087C97E /* SellerService.swift in Sources */,
+				B750F0162D881FA500AFD59D /* RootView.swift in Sources */,
+				B750F0292D882EC600AFD59D /* MakeNewSaleViewModel.swift in Sources */,
 				B76512692D8181820087C97E /* SellerEditView.swift in Sources */,
 				B76512542D81804C0087C97E /* Transaction.swift in Sources */,
 				B765128C2D8183330087C97E /* AuthService.swift in Sources */,
@@ -501,10 +556,15 @@
 				B76512652D81814B0087C97E /* SellerListView.swift in Sources */,
 				B76512812D8182B60087C97E /* SellerDetailViewModel.swift in Sources */,
 				B76512952D8183A90087C97E /* Extensions.swift in Sources */,
+				B750F0262D882E9A00AFD59D /* GameItemInstanceService.swift in Sources */,
 				B76512972D8183B80087C97E /* Helpers.swift in Sources */,
 				B76512842D8182DA0087C97E /* APIClient.swift in Sources */,
 				B76512892D81830B0087C97E /* TokenManager.swift in Sources */,
 				B76512872D8182F80087C97E /* Endpoints.swift in Sources */,
+				B750F0192D8824C100AFD59D /* MakeNewSaleView.swift in Sources */,
+				B750F0242D882E5B00AFD59D /* GameItemInstance.swift in Sources */,
+				B750F02F2D886D4500AFD59D /* PurchaseService.swift in Sources */,
+				B750F0222D88255F00AFD59D /* StatisticsView.swift in Sources */,
 				B765125B2D8180C30087C97E /* AdminDashboardView.swift in Sources */,
 				B76512992D8184740087C97E /* Game.swift in Sources */,
 			);

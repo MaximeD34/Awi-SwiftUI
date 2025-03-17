@@ -47,8 +47,8 @@ class AuthService {
             return
         }
         
-        //print the body for debugging
-        print("body", String(data: body, encoding: .utf8) ?? "")
+//        //print the body for debugging
+//        print("body", String(data: body, encoding: .utf8) ?? "")
 
        APIClient.shared.request(url: Endpoints.login, method: "POST", body: body) { (result: Result<AuthResponse, Error>) in
             switch result {
@@ -69,7 +69,6 @@ class AuthService {
                 // Extract the auth token from the cookies
                 if let authCookie = APIClient.shared.getCookie(named: "auth") {
                     TokenManager.shared.token = authCookie
-                    print("Authentication successful. Token: \(authCookie)")
 
                     switch authResponse.message {
                     case .string(let message):
@@ -85,11 +84,9 @@ class AuthService {
                     print("Authentication successful, but no auth token found in cookies.")
                     return
                 }
-                print("yeah")
             case .failure(let error):
                 //print the return request for
                 print("error",error)
-                print("yeah no")
                 completion(.failure(error))
             }
         }

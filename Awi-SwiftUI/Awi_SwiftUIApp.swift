@@ -12,19 +12,12 @@ import SwiftUI
 
 @main
 struct Awi_SwiftUIApp: App {
-    // You can inject your view models or services here as environment objects.
     @StateObject private var loginVM = LoginViewModel()
     
     var body: some Scene {
         WindowGroup {
-            // Decide the initial view based on auth state.
-            if loginVM.isAuthenticated {
-                // For example, show the appropriate dashboard
-                ManagerDashboardView()
-            } else {
-                LoginView()
-            }
+            RootView()
+                .environmentObject(loginVM)
         }
-        
     }
 }

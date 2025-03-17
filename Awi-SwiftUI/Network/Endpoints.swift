@@ -25,5 +25,13 @@ struct Endpoints {
         return baseURL.appendingPathComponent("sellers/\(id.uuidString)")
     }
     
+    static func gameItemInstance(serial: String) -> URL {
+        return baseURL.appendingPathComponent("game-item-instance/serial/\(serial)")
+    }
+
+    static var purchase: URL {
+        return baseURL.appendingPathComponent("purchase")
+    }
+    
     // Define other endpoints as needed.
 }
