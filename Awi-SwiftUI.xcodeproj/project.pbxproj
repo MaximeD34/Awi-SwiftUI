@@ -57,6 +57,9 @@
 		B76512A22D818C4B0087C97E /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76512A12D818C4B0087C97E /* ConfigManager.swift */; };
 		B7A82A8F2D8975DA001E0026 /* CatalogueRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82A8E2D8975DA001E0026 /* CatalogueRowView.swift */; };
 		B7A82A912D897699001E0026 /* CatalogueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A82A902D897699001E0026 /* CatalogueResponse.swift */; };
+		B7C146992D8CD1EA00BDC3C4 /* AddGameToDepositView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146982D8CD1EA00BDC3C4 /* AddGameToDepositView.swift */; };
+		B7C1469B2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C1469A2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift */; };
+		B7C1469D2D8CD21300BDC3C4 /* TakeBackGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C1469C2D8CD21300BDC3C4 /* TakeBackGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +133,9 @@
 		B76512A12D818C4B0087C97E /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		B7A82A8E2D8975DA001E0026 /* CatalogueRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueRowView.swift; sourceTree = "<group>"; };
 		B7A82A902D897699001E0026 /* CatalogueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueResponse.swift; sourceTree = "<group>"; };
+		B7C146982D8CD1EA00BDC3C4 /* AddGameToDepositView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameToDepositView.swift; sourceTree = "<group>"; };
+		B7C1469A2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutGameOnSaleView.swift; sourceTree = "<group>"; };
+		B7C1469C2D8CD21300BDC3C4 /* TakeBackGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeBackGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +313,9 @@
 				B76512662D81816A0087C97E /* SellerDetailView.swift */,
 				B76512682D8181820087C97E /* SellerEditView.swift */,
 				B750F01C2D88252000AFD59D /* ManageSellersView.swift */,
+				B7C146982D8CD1EA00BDC3C4 /* AddGameToDepositView.swift */,
+				B7C1469A2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift */,
+				B7C1469C2D8CD21300BDC3C4 /* TakeBackGameView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -539,6 +548,7 @@
 				B7A82A8F2D8975DA001E0026 /* CatalogueRowView.swift in Sources */,
 				B72DCB792D81751B00C6AD7D /* Awi_SwiftUIApp.swift in Sources */,
 				B76512932D8183940087C97E /* Constants.swift in Sources */,
+				B7C1469B2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift in Sources */,
 				B750F02B2D886C8300AFD59D /* PurchaseDto.swift in Sources */,
 				B765127C2D8182810087C97E /* GameDetailViewModel.swift in Sources */,
 				B76512622D81812D0087C97E /* GameDetailView.swift in Sources */,
@@ -562,12 +572,14 @@
 				B765128C2D8183330087C97E /* AuthService.swift in Sources */,
 				B76512A22D818C4B0087C97E /* ConfigManager.swift in Sources */,
 				B76512652D81814B0087C97E /* SellerListView.swift in Sources */,
+				B7C1469D2D8CD21300BDC3C4 /* TakeBackGameView.swift in Sources */,
 				B76512812D8182B60087C97E /* SellerDetailViewModel.swift in Sources */,
 				B76512952D8183A90087C97E /* Extensions.swift in Sources */,
 				B750F0262D882E9A00AFD59D /* GameItemInstanceService.swift in Sources */,
 				B76512972D8183B80087C97E /* Helpers.swift in Sources */,
 				B76512842D8182DA0087C97E /* APIClient.swift in Sources */,
 				B76512892D81830B0087C97E /* TokenManager.swift in Sources */,
+				B7C146992D8CD1EA00BDC3C4 /* AddGameToDepositView.swift in Sources */,
 				B76512872D8182F80087C97E /* Endpoints.swift in Sources */,
 				B750F0192D8824C100AFD59D /* MakeNewSaleView.swift in Sources */,
 				B750F0242D882E5B00AFD59D /* GameItemInstance.swift in Sources */,
