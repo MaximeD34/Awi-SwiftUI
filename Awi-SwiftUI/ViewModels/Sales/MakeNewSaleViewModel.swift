@@ -3,7 +3,7 @@ import Combine
 import SwiftUI
 
 class MakeNewSaleViewModel: ObservableObject {
-    @Published var serialNumber: String = ""
+    @Published var serialNumber: String = "EKLGQ1G0DO"
     @Published var gameItemInstances: [GameItemInstance] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?

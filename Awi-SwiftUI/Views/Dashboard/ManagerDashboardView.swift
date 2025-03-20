@@ -30,6 +30,7 @@ struct ManagerDashboardView: View {
                     }
                     .padding(.horizontal)
                     .padding(.top, 16)
+                    .padding(.bottom, 16)
                     
                     // Divider (horizontal line)
                     Divider()
@@ -81,7 +82,7 @@ struct ManagerDashboardView: View {
             case .manageSellers:
                 ManageSellersView()
             case .collection:
-                CollectionView()
+                CatalogueView()
             case .statistics:
                 StatisticsView()
             }
