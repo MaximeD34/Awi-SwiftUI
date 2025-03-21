@@ -68,6 +68,9 @@
 		B7C146A92D8CDFD700BDC3C4 /* SaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */; };
 		B7C146AB2D8D6B0200BDC3C4 /* RetrieveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146AA2D8D6B0200BDC3C4 /* RetrieveService.swift */; };
 		B7C146AD2D8D6B3300BDC3C4 /* TakeBackGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146AC2D8D6B3300BDC3C4 /* TakeBackGameViewModel.swift */; };
+		B7C146AF2D8D70F100BDC3C4 /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146AE2D8D70F100BDC3C4 /* StatisticsModel.swift */; };
+		B7C146B12D8D712D00BDC3C4 /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */; };
+		B7C146B42D8D717600BDC3C4 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B32D8D717600BDC3C4 /* StatisticsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +155,9 @@
 		B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleService.swift; sourceTree = "<group>"; };
 		B7C146AA2D8D6B0200BDC3C4 /* RetrieveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveService.swift; sourceTree = "<group>"; };
 		B7C146AC2D8D6B3300BDC3C4 /* TakeBackGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeBackGameViewModel.swift; sourceTree = "<group>"; };
+		B7C146AE2D8D70F100BDC3C4 /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
+		B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
+		B7C146B32D8D717600BDC3C4 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +282,7 @@
 				B750F02A2D886C8300AFD59D /* PurchaseDto.swift */,
 				B7A82A902D897699001E0026 /* CatalogueResponse.swift */,
 				B7C1469E2D8CD71800BDC3C4 /* DepositModels.swift */,
+				B7C146AE2D8D70F100BDC3C4 /* StatisticsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,6 +357,7 @@
 		B765126F2D8181F50087C97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B7C146B22D8D715B00BDC3C4 /* Session */,
 				B750F0272D882EBB00AFD59D /* Sales */,
 				B765127D2D8182920087C97E /* Sellers */,
 				B76512782D8182570087C97E /* Catalogue */,
@@ -418,6 +426,7 @@
 				B7C146A02D8CD74000BDC3C4 /* DepositService.swift */,
 				B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */,
 				B7C146AA2D8D6B0200BDC3C4 /* RetrieveService.swift */,
+				B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -431,6 +440,14 @@
 				B76512A12D818C4B0087C97E /* ConfigManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B7C146B22D8D715B00BDC3C4 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				B7C146B32D8D717600BDC3C4 /* StatisticsViewModel.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,6 +593,7 @@
 				B72DCB792D81751B00C6AD7D /* Awi_SwiftUIApp.swift in Sources */,
 				B76512932D8183940087C97E /* Constants.swift in Sources */,
 				B7C146A12D8CD74000BDC3C4 /* DepositService.swift in Sources */,
+				B7C146AF2D8D70F100BDC3C4 /* StatisticsModel.swift in Sources */,
 				B7C1469B2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift in Sources */,
 				B750F02B2D886C8300AFD59D /* PurchaseDto.swift in Sources */,
 				B765127C2D8182810087C97E /* GameDetailViewModel.swift in Sources */,
@@ -600,6 +618,8 @@
 				B750F0292D882EC600AFD59D /* MakeNewSaleViewModel.swift in Sources */,
 				B76512692D8181820087C97E /* SellerEditView.swift in Sources */,
 				B76512542D81804C0087C97E /* Transaction.swift in Sources */,
+				B7C146B42D8D717600BDC3C4 /* StatisticsViewModel.swift in Sources */,
+				B7C146B12D8D712D00BDC3C4 /* StatisticsService.swift in Sources */,
 				B7C146AD2D8D6B3300BDC3C4 /* TakeBackGameViewModel.swift in Sources */,
 				B765128C2D8183330087C97E /* AuthService.swift in Sources */,
 				B76512A22D818C4B0087C97E /* ConfigManager.swift in Sources */,
