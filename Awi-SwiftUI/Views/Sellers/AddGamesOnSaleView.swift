@@ -21,6 +21,10 @@ struct AddGamesOnSaleView: View {
                                 Text(game.quality)
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
+                                // Added price display here:
+                                Text("$\(game.sellingPrice, specifier: "%.2f")")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
                             }
                             Spacer()
                             // A menu-style picker showing a scrollable list of numbers.
@@ -54,14 +58,6 @@ struct AddGamesOnSaleView: View {
                 .padding()
             }
             .navigationTitle("Add Games on Sale")
-            // .navigationBarItems(leading:
-            //     Button(action: dismissAction) {
-            //         HStack {
-            //             Image(systemName: "chevron.left")
-            //             Text("Back")
-            //         }
-            //     }
-            // )
             .onAppear {
                 viewModel.fetchGames(for: seller)
             }

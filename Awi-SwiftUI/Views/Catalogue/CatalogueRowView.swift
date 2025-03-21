@@ -4,18 +4,26 @@ struct CatalogueRowView: View {
     let game: Game
     
     var body: some View {
-        HStack {
+        VStack(alignment: .leading, spacing: 4) {
             Text(game.title)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.subheadline)
+                .bold()
             
-            Text("$\(game.price, specifier: "%.2f")")
-                .frame(maxWidth: .infinity, alignment: .center)
-            
-            Text("\(game.condition)")
-                .frame(maxWidth: .infinity, alignment: .trailing)
-            
-            Text("\(game.inventoryCount)")
-                .frame(maxWidth: .infinity, alignment: .trailing)
+            HStack {
+                Text(game.condition)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text("$\(game.price, specifier: "%.2f")")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                Spacer()
+                
+                Text("Stock: \(game.inventoryCount)")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
         }
         .padding(.vertical, 4)
     }

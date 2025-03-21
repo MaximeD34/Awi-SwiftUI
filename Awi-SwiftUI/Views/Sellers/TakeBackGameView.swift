@@ -26,6 +26,10 @@ struct TakeBackGameView: View {
                                         Text(viewModel.depotGames[index].quality)
                                             .font(.caption)
                                             .foregroundColor(.gray)
+                                        // Price display added here:
+                                        Text("$\(viewModel.depotGames[index].sellingPrice, specifier: "%.2f")")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
                                     }
                                     Spacer()
                                     Picker("", selection: $viewModel.depotGames[index].quantityToTakeBack) {
@@ -59,6 +63,10 @@ struct TakeBackGameView: View {
                                         Text(viewModel.saleGames[index].quality)
                                             .font(.caption)
                                             .foregroundColor(.gray)
+                                        // Price display added here:
+                                        Text("$\(viewModel.saleGames[index].sellingPrice, specifier: "%.2f")")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
                                     }
                                     Spacer()
                                     Picker("", selection: $viewModel.saleGames[index].quantityToTakeBack) {
@@ -77,7 +85,7 @@ struct TakeBackGameView: View {
                 }
                 .frame(maxHeight: UIScreen.main.bounds.height / 2)
                 
-                // Action buttons: Cancel and Retrieve with equal sizes
+                // Action buttons: Clear and Retrieve with equal sizes
                 HStack {
                     Button(action: {
                         viewModel.cancelSelection()
@@ -112,14 +120,6 @@ struct TakeBackGameView: View {
                 .padding()
             }
             .navigationTitle("Take Back a Game")
-            // .navigationBarItems(leading:
-            //     Button(action: dismissAction) {
-            //         HStack {
-            //             Image(systemName: "chevron.left")
-            //             Text("Back")
-            //         }
-            //     }
-            // )
             .onAppear {
                 viewModel.fetchGames(for: seller)
             }
