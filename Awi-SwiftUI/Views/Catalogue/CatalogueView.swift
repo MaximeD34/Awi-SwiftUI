@@ -13,7 +13,26 @@ struct CatalogueView: View {
                 }
                 .listStyle(PlainListStyle())
                 
-                // Pagination controls or other catalogue features...
+                // Always display pagination controls, even with one page.
+                HStack {
+                    Button(action: {
+                        viewModel.previousPage()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(viewModel.currentPage == 1 ? .gray : .blue)
+                    }
+                    // Show the page text even for one page.
+                    Text("Page \(viewModel.currentPage) of \(viewModel.totalPages)")
+                        .frame(maxWidth: .infinity)
+                    
+                    Button(action: {
+                        viewModel.nextPage()
+                    }) {
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(viewModel.currentPage == viewModel.totalPages ? .gray : .blue)
+                    }
+                }
+                .padding()
             }
             .navigationTitle("Catalogue")
             .onAppear {

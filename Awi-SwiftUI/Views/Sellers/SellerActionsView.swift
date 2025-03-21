@@ -9,7 +9,7 @@ struct SellerActionsView: View {
                 .font(.title)
                 .padding()
             
-            NavigationLink(destination: AddGameToDepositView(seller: seller, dismissAction: {})) {
+            NavigationLink(destination: AddGameToDepositView(seller: seller)) {
                 Text("Add a Game to Deposit")
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -19,7 +19,7 @@ struct SellerActionsView: View {
             }
             .padding(.horizontal)
             
-            NavigationLink(destination: AddGamesOnSaleView(seller: seller, dismissAction: {})) {
+            NavigationLink(destination: AddGamesOnSaleView(seller: seller)) {
                 Text("Put a Game on Sale")
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -29,7 +29,7 @@ struct SellerActionsView: View {
             }
             .padding(.horizontal)
             
-            NavigationLink(destination: TakeBackGameView(seller: seller, dismissAction: {})) {
+            NavigationLink(destination: TakeBackGameView(seller: seller)) {
                 Text("Take Back a Game")
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -41,7 +41,6 @@ struct SellerActionsView: View {
             
             Spacer()
         }
-        // Removed the custom .navigationTitle("Seller Actions")
         .padding(.top)
     }
 }

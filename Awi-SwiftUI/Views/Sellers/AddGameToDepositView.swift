@@ -2,24 +2,23 @@ import SwiftUI
 
 struct AddGameToDepositView: View {
     let seller: Seller
-    var dismissAction: () -> Void
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = AddGameToDepositViewModel()
     
     @State private var showResultAlert = false
     @State private var resultMessage = ""
     
-    // Define custom number formatters with a fixed POSIX locale.
+    // Formatter for quantity (no grouping)
     private var quantityFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .none
-        formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }
     
+    // Formatter for price
     private var priceFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
         return formatter
@@ -34,6 +33,7 @@ struct AddGameToDepositView: View {
                             Text(game.name).tag(game.name)
                         }
                     }
+                    
                     Picker("Quality", selection: $viewModel.selectedQuality) {
                         ForEach(["New", "Used"], id: \.self) { quality in
                             Text(quality).tag(quality)
@@ -45,8 +45,6 @@ struct AddGameToDepositView: View {
                         Spacer()
                         TextField("Quantity", value: $viewModel.quantity, formatter: quantityFormatter)
                             .keyboardType(.numberPad)
-                            .disableAutocorrection(true)
-                            .textInputAutocapitalization(.never)
                             .multilineTextAlignment(.trailing)
                     }
                     
@@ -55,8 +53,6 @@ struct AddGameToDepositView: View {
                         Spacer()
                         TextField("Price", value: $viewModel.price, formatter: priceFormatter)
                             .keyboardType(.decimalPad)
-                            .disableAutocorrection(true)
-                            .textInputAutocapitalization(.never)
                             .multilineTextAlignment(.trailing)
                     }
                     
@@ -81,16 +77,10 @@ struct AddGameToDepositView: View {
                 }
             }
             .navigationBarTitle("Add a Game to Deposit", displayMode: .inline)
-            // .navigationBarItems(leading: Button(action: dismissAction) {
-            //     HStack {
-            //         Image(systemName: "chevron.left")
-            //         Text("Back")
-            //     }
-            // })
             .alert("Deposit Status", isPresented: $showResultAlert) {
                 Button("OK", role: .cancel) {
                     if resultMessage.contains("successfully") {
-                        dismissAction()
+                        dismiss()
                     }
                 }
             } message: {
@@ -110,6 +100,8 @@ struct AddGameToDepositView_Previews: PreviewProvider {
             tel: "1234567890",
             billingAddress: "123 Address St."
         )
-        AddGameToDepositView(seller: sampleSeller, dismissAction: {})
+        NavigationView {
+            AddGameToDepositView(seller: sampleSeller)
+        }
     }
 }

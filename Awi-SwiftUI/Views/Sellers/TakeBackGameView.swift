@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TakeBackGameView: View {
     let seller: Seller
-    var dismissAction: () -> Void
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = TakeBackGameViewModel()
     
     @State private var showResultAlert = false
@@ -26,7 +26,6 @@ struct TakeBackGameView: View {
                                         Text(viewModel.depotGames[index].quality)
                                             .font(.caption)
                                             .foregroundColor(.gray)
-                                        // Price display added here:
                                         Text("$\(viewModel.depotGames[index].sellingPrice, specifier: "%.2f")")
                                             .font(.caption)
                                             .foregroundColor(.secondary)
@@ -63,7 +62,6 @@ struct TakeBackGameView: View {
                                         Text(viewModel.saleGames[index].quality)
                                             .font(.caption)
                                             .foregroundColor(.gray)
-                                        // Price display added here:
                                         Text("$\(viewModel.saleGames[index].sellingPrice, specifier: "%.2f")")
                                             .font(.caption)
                                             .foregroundColor(.secondary)
@@ -85,7 +83,7 @@ struct TakeBackGameView: View {
                 }
                 .frame(maxHeight: UIScreen.main.bounds.height / 2)
                 
-                // Action buttons: Clear and Retrieve with equal sizes
+                // Action buttons: Clear and Retrieve
                 HStack {
                     Button(action: {
                         viewModel.cancelSelection()
@@ -126,7 +124,7 @@ struct TakeBackGameView: View {
             .alert("Retrieve Status", isPresented: $showResultAlert) {
                 Button("OK", role: .cancel) {
                     if resultMessage.contains("successfully") {
-                        dismissAction()
+                        dismiss()
                     }
                 }
             } message: {
@@ -146,6 +144,8 @@ struct TakeBackGameView_Previews: PreviewProvider {
             tel: "1234567890",
             billingAddress: "123 Address St."
         )
-        TakeBackGameView(seller: sampleSeller, dismissAction: {})
+        NavigationView {
+            TakeBackGameView(seller: sampleSeller)
+        }
     }
 }
