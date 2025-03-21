@@ -63,6 +63,9 @@
 		B7C1469F2D8CD71800BDC3C4 /* DepositModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C1469E2D8CD71800BDC3C4 /* DepositModels.swift */; };
 		B7C146A12D8CD74000BDC3C4 /* DepositService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146A02D8CD74000BDC3C4 /* DepositService.swift */; };
 		B7C146A32D8CD77100BDC3C4 /* AddGameToDepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146A22D8CD77100BDC3C4 /* AddGameToDepositViewModel.swift */; };
+		B7C146A52D8CDF0F00BDC3C4 /* AddGamesOnSaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146A42D8CDF0F00BDC3C4 /* AddGamesOnSaleViewModel.swift */; };
+		B7C146A72D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146A62D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift */; };
+		B7C146A92D8CDFD700BDC3C4 /* SaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +145,9 @@
 		B7C1469E2D8CD71800BDC3C4 /* DepositModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositModels.swift; sourceTree = "<group>"; };
 		B7C146A02D8CD74000BDC3C4 /* DepositService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositService.swift; sourceTree = "<group>"; };
 		B7C146A22D8CD77100BDC3C4 /* AddGameToDepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameToDepositViewModel.swift; sourceTree = "<group>"; };
+		B7C146A42D8CDF0F00BDC3C4 /* AddGamesOnSaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGamesOnSaleViewModel.swift; sourceTree = "<group>"; };
+		B7C146A62D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGamesOnSaleView.swift; sourceTree = "<group>"; };
+		B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +329,7 @@
 				B7C146982D8CD1EA00BDC3C4 /* AddGameToDepositView.swift */,
 				B7C1469A2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift */,
 				B7C1469C2D8CD21300BDC3C4 /* TakeBackGameView.swift */,
+				B7C146A62D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -380,6 +387,7 @@
 				B765127E2D81829D0087C97E /* SellerListViewModel.swift */,
 				B76512802D8182B60087C97E /* SellerDetailViewModel.swift */,
 				B7C146A22D8CD77100BDC3C4 /* AddGameToDepositViewModel.swift */,
+				B7C146A42D8CDF0F00BDC3C4 /* AddGamesOnSaleViewModel.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 				B750F0252D882E9A00AFD59D /* GameItemInstanceService.swift */,
 				B750F02E2D886D4500AFD59D /* PurchaseService.swift */,
 				B7C146A02D8CD74000BDC3C4 /* DepositService.swift */,
+				B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -555,6 +564,8 @@
 				B76512752D81822D0087C97E /* AdminDashboardViewModel.swift in Sources */,
 				B765127A2D8182630087C97E /* CatalogueViewModel.swift in Sources */,
 				B7A82A8F2D8975DA001E0026 /* CatalogueRowView.swift in Sources */,
+				B7C146A52D8CDF0F00BDC3C4 /* AddGamesOnSaleViewModel.swift in Sources */,
+				B7C146A92D8CDFD700BDC3C4 /* SaleService.swift in Sources */,
 				B72DCB792D81751B00C6AD7D /* Awi_SwiftUIApp.swift in Sources */,
 				B76512932D8183940087C97E /* Constants.swift in Sources */,
 				B7C146A12D8CD74000BDC3C4 /* DepositService.swift in Sources */,
@@ -570,6 +581,7 @@
 				B765128E2D8183680087C97E /* GameService.swift in Sources */,
 				B76512602D8181120087C97E /* CatalogueView.swift in Sources */,
 				B76512772D8182420087C97E /* ManagerDashboardViewModel.swift in Sources */,
+				B7C146A72D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift in Sources */,
 				B750F01D2D88252000AFD59D /* ManageSellersView.swift in Sources */,
 				B750F01F2D88253400AFD59D /* CollectionView.swift in Sources */,
 				B76512502D81800F0087C97E /* User.swift in Sources */,

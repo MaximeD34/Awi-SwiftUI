@@ -100,7 +100,7 @@ struct ManageSellersView: View {
                     case .addDeposit:
                         AddGameToDepositView(seller: selectedSeller, dismissAction: { sellerAction = nil })
                     case .putOnSale:
-                        PutGameOnSaleView(seller: selectedSeller, dismissAction: { sellerAction = nil })
+                        AddGamesOnSaleView(seller: selectedSeller, dismissAction: { sellerAction = nil })
                     case .takeBack:
                         TakeBackGameView(seller: selectedSeller, dismissAction: { sellerAction = nil })
                     }
