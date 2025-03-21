@@ -2,38 +2,39 @@ import SwiftUI
 
 struct ManageSellersView: View {
     @StateObject private var viewModel = SellerListViewModel()
-    @State private var sellerAction: SellerAction? = nil
     
     var body: some View {
-        ZStack {
+        NavigationView {
             VStack {
-                // Single Search Field for seller name.
-                Form {
-                    Section(header: Text("Search Sellers")) {
-                        TextField("Name", text: $viewModel.searchName)
-                        Button("Search") {
-                            viewModel.filterSellers()
-                        }
-                        .buttonStyle(PrimaryButtonStyle())
+                // Plain Search Field without gray background.
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Search Sellers")
+                        .font(.headline)
+                    TextField("Name", text: $viewModel.searchName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button("Search") {
+                        viewModel.filterSellers()
                     }
+                    .buttonStyle(PrimaryButtonStyle())
                 }
                 .padding(.horizontal)
+                .padding(.top)
                 
-                // Seller List (paged)
+                // Seller List (paged) with navigation to SellerActionsView.
                 List(viewModel.sellersForCurrentPage()) { seller in
-                    HStack {
-                        Text(seller.name)
-                        Spacer()
-                        if seller.id == viewModel.selectedSeller?.id {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.blue)
+                    NavigationLink(destination: SellerActionsView(seller: seller)) {
+                        HStack {
+                            Text(seller.name)
+                            Spacer()
+                            if seller.id == viewModel.selectedSeller?.id {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.blue)
+                            }
                         }
                     }
                     .contentShape(Rectangle())
-                    .onTapGesture {
-                        viewModel.selectSeller(seller)
-                    }
                 }
+                .listStyle(PlainListStyle())
                 
                 // Pagination controls
                 HStack {
@@ -58,58 +59,18 @@ struct ManageSellersView: View {
                 }
                 .padding()
                 
-                if let _ = viewModel.selectedSeller {
-                    HStack(spacing: 20) {
-                        Button("Add a Game to Deposit") {
-                            sellerAction = .addDeposit
-                        }
-                        .buttonStyle(PrimaryButtonStyle())
-                        
-                        Button("Put a Game on Sale") {
-                            sellerAction = .putOnSale
-                        }
-                        .buttonStyle(PrimaryButtonStyle())
-                        
-                        Button("Take Back a Game") {
-                            sellerAction = .takeBack
-                        }
-                        .buttonStyle(PrimaryButtonStyle())
-                    }
-                    .padding()
-                }
-                
                 Spacer()
             }
             .navigationTitle("Manage Sellers")
             .onAppear {
                 viewModel.fetchSellers()
             }
-            
-            if let action = sellerAction, let selectedSeller = viewModel.selectedSeller {
-                // Dimming background covering the entire screen.
-                Color.black.opacity(0.3)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        // You can still dismiss by tapping outside if desired.
-                        sellerAction = nil
-                    }
-                
-                // Overlay now fills the entire screen without animation on dismiss.
-                Group {
-                    switch action {
-                    case .addDeposit:
-                        AddGameToDepositView(seller: selectedSeller, dismissAction: { sellerAction = nil })
-                    case .putOnSale:
-                        AddGamesOnSaleView(seller: selectedSeller, dismissAction: { sellerAction = nil })
-                    case .takeBack:
-                        TakeBackGameView(seller: selectedSeller, dismissAction: { sellerAction = nil })
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.white)
-                .ignoresSafeArea()
-                .transition(.move(edge: .trailing))
-            }
         }
+    }
+}
+
+struct ManageSellersView_Previews: PreviewProvider {
+    static var previews: some View {
+        ManageSellersView()
     }
 }

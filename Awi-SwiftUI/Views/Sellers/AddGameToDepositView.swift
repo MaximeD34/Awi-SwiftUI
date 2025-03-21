@@ -81,12 +81,12 @@ struct AddGameToDepositView: View {
                 }
             }
             .navigationBarTitle("Add a Game to Deposit", displayMode: .inline)
-            .navigationBarItems(leading: Button(action: dismissAction) {
-                HStack {
-                    Image(systemName: "chevron.left")
-                    Text("Back")
-                }
-            })
+            // .navigationBarItems(leading: Button(action: dismissAction) {
+            //     HStack {
+            //         Image(systemName: "chevron.left")
+            //         Text("Back")
+            //     }
+            // })
             .alert("Deposit Status", isPresented: $showResultAlert) {
                 Button("OK", role: .cancel) {
                     if resultMessage.contains("successfully") {

@@ -112,14 +112,14 @@ struct TakeBackGameView: View {
                 .padding()
             }
             .navigationTitle("Take Back a Game")
-            .navigationBarItems(leading:
-                Button(action: dismissAction) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
-                    }
-                }
-            )
+            // .navigationBarItems(leading:
+            //     Button(action: dismissAction) {
+            //         HStack {
+            //             Image(systemName: "chevron.left")
+            //             Text("Back")
+            //         }
+            //     }
+            // )
             .onAppear {
                 viewModel.fetchGames(for: seller)
             }

@@ -54,14 +54,14 @@ struct AddGamesOnSaleView: View {
                 .padding()
             }
             .navigationTitle("Add Games on Sale")
-            .navigationBarItems(leading:
-                Button(action: dismissAction) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
-                    }
-                }
-            )
+            // .navigationBarItems(leading:
+            //     Button(action: dismissAction) {
+            //         HStack {
+            //             Image(systemName: "chevron.left")
+            //             Text("Back")
+            //         }
+            //     }
+            // )
             .onAppear {
                 viewModel.fetchGames(for: seller)
             }

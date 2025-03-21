@@ -71,6 +71,7 @@
 		B7C146AF2D8D70F100BDC3C4 /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146AE2D8D70F100BDC3C4 /* StatisticsModel.swift */; };
 		B7C146B12D8D712D00BDC3C4 /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */; };
 		B7C146B42D8D717600BDC3C4 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B32D8D717600BDC3C4 /* StatisticsViewModel.swift */; };
+		B7C146B62D8D76CD00BDC3C4 /* SellerActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B52D8D76CD00BDC3C4 /* SellerActionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		B7C146AE2D8D70F100BDC3C4 /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
 		B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
 		B7C146B32D8D717600BDC3C4 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		B7C146B52D8D76CD00BDC3C4 /* SellerActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerActionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 				B7C1469A2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift */,
 				B7C1469C2D8CD21300BDC3C4 /* TakeBackGameView.swift */,
 				B7C146A62D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift */,
+				B7C146B52D8D76CD00BDC3C4 /* SellerActionsView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				B750F0222D88255F00AFD59D /* StatisticsView.swift in Sources */,
 				B765125B2D8180C30087C97E /* AdminDashboardView.swift in Sources */,
 				B76512992D8184740087C97E /* Game.swift in Sources */,
+				B7C146B62D8D76CD00BDC3C4 /* SellerActionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
