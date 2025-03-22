@@ -8,6 +8,11 @@ struct AddGamesOnSaleView: View {
     @State private var showResultAlert = false
     @State private var resultMessage = ""
     
+    // Computed property to check if at least one game is selected.
+    private var hasSelection: Bool {
+        viewModel.games.contains { $0.quantityToSell > 0 }
+    }
+    
     var body: some View {
         VStack {
             List {
@@ -31,6 +36,10 @@ struct AddGamesOnSaleView: View {
                         }
                         .pickerStyle(MenuPickerStyle())
                         .frame(width: 70, height: 40)
+                        // Display the maximum available quantity next to the picker.
+                        Text("Max: \(game.quantityOnDepot)")
+                            .font(.caption)
+                            .foregroundColor(.gray)
                     }
                     .padding(.vertical, 4)
                 }
@@ -52,6 +61,9 @@ struct AddGamesOnSaleView: View {
             }
             .buttonStyle(PrimaryButtonStyle())
             .padding()
+            // Disable the button and dim it if there's no selection
+            .disabled(!hasSelection)
+            .opacity(hasSelection ? 1 : 0.5)
         }
         .navigationTitle("Add Games on Sale")
         .onAppear {
