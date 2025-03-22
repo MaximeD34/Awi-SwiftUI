@@ -78,6 +78,7 @@
 		B7C146BE2D8F49FC00BDC3C4 /* UpdateSellerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */; };
 		B7C146C02D8F4A5700BDC3C4 /* SellerUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */; };
 		B7C146C32D8F4EC100BDC3C4 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */; };
+		B7C146C52D8F542000BDC3C4 /* SellerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSellerDto.swift; sourceTree = "<group>"; };
 		B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerUpdateView.swift; sourceTree = "<group>"; };
 		B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +364,7 @@
 				B7C146A62D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift */,
 				B7C146B52D8D76CD00BDC3C4 /* SellerActionsView.swift */,
 				B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */,
+				B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76512582D8180930087C97E /* LoginView.swift in Sources */,
+				B7C146C52D8F542000BDC3C4 /* SellerCardView.swift in Sources */,
 				B7C146AB2D8D6B0200BDC3C4 /* RetrieveService.swift in Sources */,
 				B7C146BC2D8F449400BDC3C4 /* CreateSellerDto.swift in Sources */,
 				B7C146C32D8F4EC100BDC3C4 /* NavigationCoordinator.swift in Sources */,
