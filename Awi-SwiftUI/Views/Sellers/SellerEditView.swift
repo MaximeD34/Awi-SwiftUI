@@ -13,25 +13,33 @@ struct SellerEditView: View {
                 TextField("Name", text: $viewModel.sellerName)
                     .autocapitalization(.words)
                 if let nameError = viewModel.nameError {
-                    Text(nameError).foregroundColor(.red).font(.caption)
+                    Text(nameError)
+                        .foregroundColor(.red)
+                        .font(.caption)
                 }
                 
                 TextField("Email", text: $viewModel.sellerEmail)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
                 if let emailError = viewModel.emailError {
-                    Text(emailError).foregroundColor(.red).font(.caption)
+                    Text(emailError)
+                        .foregroundColor(.red)
+                        .font(.caption)
                 }
                 
                 TextField("Telephone", text: $viewModel.sellerTel)
                     .keyboardType(.phonePad)
                 if let telError = viewModel.telError {
-                    Text(telError).foregroundColor(.red).font(.caption)
+                    Text(telError)
+                        .foregroundColor(.red)
+                        .font(.caption)
                 }
                 
                 TextField("Billing Address (optional)", text: $viewModel.sellerBillingAddress)
                 if let billingAddressError = viewModel.billingAddressError {
-                    Text(billingAddressError).foregroundColor(.red).font(.caption)
+                    Text(billingAddressError)
+                        .foregroundColor(.red)
+                        .font(.caption)
                 }
             }
             
@@ -52,6 +60,12 @@ struct SellerEditView: View {
         .onAppear {
             if let seller = seller {
                 viewModel.loadSellerDetails(for: seller)
+            } else {
+                // These default values are for testing purposes.
+                viewModel.sellerName = "Test Seller"
+                viewModel.sellerEmail = "test@example.com"
+                viewModel.sellerTel = "+12345678901"
+                viewModel.sellerBillingAddress = "123 Main St, Test City"
             }
         }
         .alert(isPresented: $showAlert) {

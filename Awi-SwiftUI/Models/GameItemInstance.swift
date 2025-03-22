@@ -33,7 +33,7 @@ struct GameInventoryItem: Decodable {
     }
 }
 
-struct Seller: Decodable, Identifiable {
+struct Seller: Identifiable, Codable, Hashable {  // Added Hashable conformance.
     let id: Int
     let idSellerPublic: String
     let name: String

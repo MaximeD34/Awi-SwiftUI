@@ -75,6 +75,9 @@
 		B7C146B82D8D803E00BDC3C4 /* BGDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B72D8D803E00BDC3C4 /* BGDetail.swift */; };
 		B7C146BA2D8D805C00BDC3C4 /* BoardGameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146B92D8D805C00BDC3C4 /* BoardGameDetailView.swift */; };
 		B7C146BC2D8F449400BDC3C4 /* CreateSellerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146BB2D8F449400BDC3C4 /* CreateSellerDto.swift */; };
+		B7C146BE2D8F49FC00BDC3C4 /* UpdateSellerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */; };
+		B7C146C02D8F4A5700BDC3C4 /* SellerUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */; };
+		B7C146C32D8F4EC100BDC3C4 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +169,9 @@
 		B7C146B72D8D803E00BDC3C4 /* BGDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGDetail.swift; sourceTree = "<group>"; };
 		B7C146B92D8D805C00BDC3C4 /* BoardGameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameDetailView.swift; sourceTree = "<group>"; };
 		B7C146BB2D8F449400BDC3C4 /* CreateSellerDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSellerDto.swift; sourceTree = "<group>"; };
+		B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSellerDto.swift; sourceTree = "<group>"; };
+		B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerUpdateView.swift; sourceTree = "<group>"; };
+		B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,7 @@
 		B72DCB772D81751B00C6AD7D /* Awi-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B7C146C12D8F4EAE00BDC3C4 /* Coordinators */,
 				B76512912D8183860087C97E /* Utilities */,
 				B765128A2D8183280087C97E /* Services */,
 				B76512822D8182CA0087C97E /* Network */,
@@ -293,6 +300,7 @@
 				B7C146AE2D8D70F100BDC3C4 /* StatisticsModel.swift */,
 				B7C146B72D8D803E00BDC3C4 /* BGDetail.swift */,
 				B7C146BB2D8F449400BDC3C4 /* CreateSellerDto.swift */,
+				B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,6 +361,7 @@
 				B7C1469C2D8CD21300BDC3C4 /* TakeBackGameView.swift */,
 				B7C146A62D8CDF3000BDC3C4 /* AddGamesOnSaleView.swift */,
 				B7C146B52D8D76CD00BDC3C4 /* SellerActionsView.swift */,
+				B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -460,6 +469,14 @@
 				B7C146B32D8D717600BDC3C4 /* StatisticsViewModel.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		B7C146C12D8F4EAE00BDC3C4 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,6 +613,7 @@
 				B76512582D8180930087C97E /* LoginView.swift in Sources */,
 				B7C146AB2D8D6B0200BDC3C4 /* RetrieveService.swift in Sources */,
 				B7C146BC2D8F449400BDC3C4 /* CreateSellerDto.swift in Sources */,
+				B7C146C32D8F4EC100BDC3C4 /* NavigationCoordinator.swift in Sources */,
 				B72DCB7B2D81751B00C6AD7D /* ContentView.swift in Sources */,
 				B7A82A912D897699001E0026 /* CatalogueResponse.swift in Sources */,
 				B7C146BA2D8D805C00BDC3C4 /* BoardGameDetailView.swift in Sources */,
@@ -615,6 +633,7 @@
 				B76512722D8182090087C97E /* LoginViewModel.swift in Sources */,
 				B765125D2D8180E40087C97E /* ManagerDashboardView.swift in Sources */,
 				B765126C2D8181C80087C97E /* LoadingView.swift in Sources */,
+				B7C146C02D8F4A5700BDC3C4 /* SellerUpdateView.swift in Sources */,
 				B7C146A32D8CD77100BDC3C4 /* AddGameToDepositViewModel.swift in Sources */,
 				B76512672D81816A0087C97E /* SellerDetailView.swift in Sources */,
 				B765128E2D8183680087C97E /* GameService.swift in Sources */,
@@ -647,6 +666,7 @@
 				B76512842D8182DA0087C97E /* APIClient.swift in Sources */,
 				B76512892D81830B0087C97E /* TokenManager.swift in Sources */,
 				B7C146992D8CD1EA00BDC3C4 /* AddGameToDepositView.swift in Sources */,
+				B7C146BE2D8F49FC00BDC3C4 /* UpdateSellerDto.swift in Sources */,
 				B76512872D8182F80087C97E /* Endpoints.swift in Sources */,
 				B750F0192D8824C100AFD59D /* MakeNewSaleView.swift in Sources */,
 				B750F0242D882E5B00AFD59D /* GameItemInstance.swift in Sources */,

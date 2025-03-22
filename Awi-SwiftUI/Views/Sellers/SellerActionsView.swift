@@ -2,49 +2,66 @@ import SwiftUI
 
 struct SellerActionsView: View {
     let seller: Seller
+    @EnvironmentObject var coordinator: NavigationCoordinator
     
     var body: some View {
         VStack(spacing: 20) {
-            // Seller Info Card
-            VStack(alignment: .leading, spacing: 8) {
-                Text(seller.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                if let email = seller.email, !email.isEmpty {
-                    HStack {
-                        Image(systemName: "envelope")
-                        Text(email)
+            // Seller Info Card with update/delete button on top-right.
+            ZStack {
+                // Background info card.
+                VStack(alignment: .leading, spacing: 8) {
+                    // Seller name, email, tel, billing address.
+                    Text(seller.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    if let email = seller.email, !email.isEmpty {
+                        HStack {
+                            Image(systemName: "envelope")
+                            Text(email)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                     }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    if let tel = seller.tel, !tel.isEmpty {
+                        HStack {
+                            Image(systemName: "phone")
+                            Text(tel)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    }
+                    if let billing = seller.billingAddress, !billing.isEmpty {
+                        HStack {
+                            Image(systemName: "house")
+                            Text(billing)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    }
                 }
+                .padding()
+                .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(12)
+                .padding(.horizontal)
                 
-                if let tel = seller.tel, !tel.isEmpty {
-                    HStack {
-                        Image(systemName: "phone")
-                        Text(tel)
+                // Update/Delete Button positioned on top-right.
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: SellerUpdateView(seller: seller).environmentObject(coordinator)) {
+                        Image(systemName: "pencil")
+                            .padding(8)
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
                     }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                }
-                
-                if let billing = seller.billingAddress, !billing.isEmpty {
-                    HStack {
-                        Image(systemName: "house")
-                        Text(billing)
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .padding(.trailing, 20)
+                    .padding(.top, 10)
                 }
             }
-            .padding()
-            .background(Color(UIColor.secondarySystemBackground))
-            .cornerRadius(12)
-            .padding(.horizontal)
             
-            // Action buttons
-            NavigationLink(destination: AddGameToDepositView(seller: seller)) {
+            // Action buttons.
+            NavigationLink(value: seller) {
                 Text("Add a Game to Deposit")
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -74,6 +91,7 @@ struct SellerActionsView: View {
             }
             .padding(.horizontal)
             
+            // Spacer for layout.
             Spacer()
         }
         .padding(.top)
@@ -92,6 +110,7 @@ struct SellerActionsView_Previews: PreviewProvider {
         )
         NavigationView {
             SellerActionsView(seller: sampleSeller)
+                .environmentObject(NavigationCoordinator())
         }
     }
 }

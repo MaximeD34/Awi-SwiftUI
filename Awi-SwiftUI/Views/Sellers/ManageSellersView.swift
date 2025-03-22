@@ -2,17 +2,18 @@ import SwiftUI
 
 struct ManageSellersView: View {
     @StateObject private var viewModel = SellerListViewModel()
+    @StateObject private var coordinator = NavigationCoordinator()
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $coordinator.path) {
             VStack {
-                // Title and New button in a horizontal stack.
+                // Title and New button.
                 HStack {
                     Text("Manage Sellers")
                         .font(.largeTitle)
                         .bold()
                     Spacer()
-                    NavigationLink(destination: SellerEditView(seller: nil)) {
+                    NavigationLink(value: "SellerEditView") {
                         Text("New")
                             .padding(8)
                             .background(Color.blue)
@@ -36,9 +37,9 @@ struct ManageSellersView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-                // Seller list (paged).
+                // Seller list.
                 List(viewModel.sellersForCurrentPage()) { seller in
-                    NavigationLink(destination: SellerActionsView(seller: seller)) {
+                    NavigationLink(value: seller) {
                         HStack {
                             Text(seller.name)
                             Spacer()
@@ -80,7 +81,18 @@ struct ManageSellersView: View {
             .onAppear {
                 viewModel.fetchSellers()
             }
+            .navigationDestination(for: String.self) { value in
+                // Destination for creating a new seller.
+                SellerEditView(seller: nil)
+                    .environmentObject(coordinator)
+            }
+            .navigationDestination(for: Seller.self) { seller in
+                // Seller actions view.
+                SellerActionsView(seller: seller)
+                    .environmentObject(coordinator)
+            }
         }
+        .environmentObject(coordinator)
     }
 }
 

@@ -1,8 +1,8 @@
-//
-//  UpdateSellerDto.swift
-//  Awi-SwiftUI
-//
-//  Created by etud on 22/03/2025.
-//
-
 import Foundation
+
+struct UpdateSellerDto: Codable {
+    let name: String?
+    let email: String?
+    let tel: String?
+    let billing_address: String?
+}

@@ -72,10 +72,17 @@ final class SellerDetailViewModel: ObservableObject {
         }
         
         if let seller = seller {
-            sellerService.updateSeller(sellerID: seller.id, name: sellerName) { result in
+            // Create the update DTO and call the update service.
+            let dto = UpdateSellerDto(
+                name: sellerName,
+                email: sellerEmail,
+                tel: sellerTel,
+                billing_address: sellerBillingAddress.isEmpty ? nil : sellerBillingAddress
+            )
+            sellerService.updateSeller(dto: dto, for: seller) { result in
                 DispatchQueue.main.async {
                     switch result {
-                    case .success:
+                    case .success(let updatedSeller):
                         completion(.success("Seller updated successfully"))
                     case .failure(let error):
                         completion(.failure(error))
@@ -83,6 +90,7 @@ final class SellerDetailViewModel: ObservableObject {
                 }
             }
         } else {
+            // Create a new seller.
             let dto = CreateSellerDto(
                 name: sellerName,
                 email: sellerEmail,
