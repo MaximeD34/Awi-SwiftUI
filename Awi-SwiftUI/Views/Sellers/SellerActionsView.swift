@@ -5,10 +5,45 @@ struct SellerActionsView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(seller.name)
-                .font(.title)
-                .padding()
+            // Seller Info Card
+            VStack(alignment: .leading, spacing: 8) {
+                Text(seller.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                if let email = seller.email, !email.isEmpty {
+                    HStack {
+                        Image(systemName: "envelope")
+                        Text(email)
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                }
+                
+                if let tel = seller.tel, !tel.isEmpty {
+                    HStack {
+                        Image(systemName: "phone")
+                        Text(tel)
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                }
+                
+                if let billing = seller.billingAddress, !billing.isEmpty {
+                    HStack {
+                        Image(systemName: "house")
+                        Text(billing)
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                }
+            }
+            .padding()
+            .background(Color(UIColor.secondarySystemBackground))
+            .cornerRadius(12)
+            .padding(.horizontal)
             
+            // Action buttons
             NavigationLink(destination: AddGameToDepositView(seller: seller)) {
                 Text("Add a Game to Deposit")
                     .frame(maxWidth: .infinity)
