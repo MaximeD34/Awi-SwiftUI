@@ -2,8 +2,8 @@ import SwiftUI
 
 enum DashboardTab: String, CaseIterable {
     case collection = "Collection"
-    case newSale = "Make a New Sale"
-    case manageSellers = "Manage Sellers"
+    case newSale = "Register a Sale"
+    case manageSellers = "Sellers"
     case statistics = "Statistics"
 }
 
