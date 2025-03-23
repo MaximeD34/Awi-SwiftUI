@@ -3,7 +3,6 @@
 //  Awi-SwiftUI
 //
 //  Contains the definitions of RESTful endpoints used by the APIClient.
-//  Adjust the endpoints according to your backend's specification.
 //
 
 import Foundation
@@ -11,7 +10,6 @@ import Foundation
 struct Endpoints {
     
     static let baseURL = URL(string: Constants.API_BASE_URL)!
-
     
     static var login: URL {
         return baseURL.appendingPathComponent("auth/login")
@@ -28,9 +26,14 @@ struct Endpoints {
     static func gameItemInstance(serial: String) -> URL {
         return baseURL.appendingPathComponent("game-item-instance/serial/\(serial)")
     }
-
+    
     static var purchase: URL {
         return baseURL.appendingPathComponent("purchase")
+    }
+    
+    // New endpoint for fetching instances by game inventory item public ID.
+    static func gameItemInstances(publicId: String) -> URL {
+        return baseURL.appendingPathComponent("game-inventory-item/\(publicId)/instances")
     }
     
     // Define other endpoints as needed.

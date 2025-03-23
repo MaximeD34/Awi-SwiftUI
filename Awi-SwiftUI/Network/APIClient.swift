@@ -34,6 +34,9 @@ class APIClient {
             if let jsonString = String(data: data, encoding: .utf8) {
                 print("Raw Response Data: \(jsonString)")
             }
+            else{
+                print("Raw Response Data: <empty>")
+            }
             
             let decoder = JSONDecoder()
             // Custom date decoding strategy to support fractional seconds.

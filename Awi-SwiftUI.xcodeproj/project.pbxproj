@@ -83,6 +83,7 @@
 		B7C146CB2D8FA2B700BDC3C4 /* SellerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */; };
 		B7C146CD2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */; };
 		B7C146CF2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */; };
+		B7C146D12D905DAA00BDC3C4 /* GameItemInstanceExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146D02D905DAA00BDC3C4 /* GameItemInstanceExtended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStats.swift; sourceTree = "<group>"; };
 		B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStatisticsService.swift; sourceTree = "<group>"; };
 		B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStatisticsView.swift; sourceTree = "<group>"; };
+		B7C146D02D905DAA00BDC3C4 /* GameItemInstanceExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemInstanceExtended.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 				B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */,
 				B7C146C62D8F941C00BDC3C4 /* Seller.swift */,
 				B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */,
+				B7C146D02D905DAA00BDC3C4 /* GameItemInstanceExtended.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				B76512692D8181820087C97E /* SellerEditView.swift in Sources */,
 				B76512542D81804C0087C97E /* Transaction.swift in Sources */,
 				B7C146B42D8D717600BDC3C4 /* StatisticsViewModel.swift in Sources */,
+				B7C146D12D905DAA00BDC3C4 /* GameItemInstanceExtended.swift in Sources */,
 				B7C146B12D8D712D00BDC3C4 /* StatisticsService.swift in Sources */,
 				B7C146AD2D8D6B3300BDC3C4 /* TakeBackGameViewModel.swift in Sources */,
 				B765128C2D8183330087C97E /* AuthService.swift in Sources */,
