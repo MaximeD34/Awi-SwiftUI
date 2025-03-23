@@ -21,6 +21,7 @@ struct CatalogueView: View {
                         Image(systemName: "chevron.left")
                             .foregroundColor(viewModel.currentPage == 1 ? .gray : .blue)
                     }
+                    
                     // Show the page text even for one page.
                     Text("Page \(viewModel.currentPage) of \(viewModel.totalPages)")
                         .frame(maxWidth: .infinity)
@@ -39,6 +40,7 @@ struct CatalogueView: View {
                 viewModel.fetchGames()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle()) // Force single-column style on iPad.
     }
 }
 

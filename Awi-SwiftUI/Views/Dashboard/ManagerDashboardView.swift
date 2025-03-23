@@ -14,28 +14,24 @@ struct ManagerDashboardView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .leading) {
-                // Custom header and main content
+                // Your header and main content here.
                 VStack(spacing: 0) {
-                    // Header with burger button
+                    // Header with a burger button.
                     HStack {
                         Button(action: {
-                            withAnimation {
-                                isMenuOpen.toggle()
-                            }
+                            withAnimation { isMenuOpen.toggle() }
                         }) {
                             Image(systemName: "line.horizontal.3")
                                 .font(.title2)
                         }
                         Spacer()
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 16)
+                    .padding([.horizontal, .top])
                     .padding(.bottom, 16)
                     
-                    // Divider (horizontal line)
                     Divider()
                     
-                    // Title placed below the divider
+                    // Your content title and main view
                     HStack {
                         Text(selectedTab.rawValue)
                             .font(.headline)
@@ -46,7 +42,7 @@ struct ManagerDashboardView: View {
                     
                     Divider()
                     
-                    // Content area
+                    // Content area switching among tabs.
                     content
                         .padding()
                     
@@ -54,15 +50,12 @@ struct ManagerDashboardView: View {
                 }
                 .navigationBarHidden(true)
                 
-                // Menu overlay
+                // Menu overlay if open.
                 if isMenuOpen {
-                    // Translucent overlay
                     Color.black.opacity(0.3)
                         .ignoresSafeArea()
                         .onTapGesture {
-                            withAnimation {
-                                isMenuOpen = false
-                            }
+                            withAnimation { isMenuOpen = false }
                         }
                     
                     menuOverlay
@@ -72,6 +65,7 @@ struct ManagerDashboardView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle()) // Force single-column style on iPad.
     }
     
     private var content: some View {
