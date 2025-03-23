@@ -17,11 +17,14 @@ struct Game: Codable, Identifiable {
     let minPlaytime: Int?
     let idEditorPublic: String?
     let editorName: String?   // New property for the editor's name
+    
+    // NEW: Add an optional seller property.
+    var seller: Seller? = nil
 
     enum CodingKeys: String, CodingKey {
         case id = "id_game_inventory_item"
         case publicId = "id_game_inventory_item_public"
-        case price, status, nb_sale, nb_depot, bg
+        case price, status, nb_sale, nb_depot, bg, seller
     }
     
     enum BGKeys: String, CodingKey {
@@ -65,6 +68,9 @@ struct Game: Codable, Identifiable {
         } else {
             editorName = nil
         }
+        
+        // NEW: Decode the seller property if available.
+        seller = try container.decodeIfPresent(Seller.self, forKey: .seller)
     }
     
     // Implement encode(to:) for Encodable conformance.
@@ -90,6 +96,9 @@ struct Game: Codable, Identifiable {
             var editorContainer = bgContainer.nestedContainer(keyedBy: BGEditorKeys.self, forKey: .editor)
             try editorContainer.encode(editorName, forKey: .name)
         }
+        
+        // NEW: Encode the seller if available.
+        try container.encodeIfPresent(seller, forKey: .seller)
     }
     
     // Public initializer for creating sample data in previews or elsewhere.
@@ -114,6 +123,7 @@ struct Game: Codable, Identifiable {
         self.minPlaytime = minPlaytime
         self.idEditorPublic = idEditorPublic
         self.editorName = editorName
+        self.seller = nil
     }
 }
 

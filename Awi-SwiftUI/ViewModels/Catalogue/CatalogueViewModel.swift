@@ -3,7 +3,7 @@ import Foundation
 class CatalogueViewModel: ObservableObject {
     @Published var games: [Game] = []
     @Published var currentPage: Int = 1
-    @Published var pageSize: Int = 7
+    @Published var pageSize: Int = 5
     @Published var totalPages: Int = 1   // New property for total pages
 
     private let gameService = GameService()

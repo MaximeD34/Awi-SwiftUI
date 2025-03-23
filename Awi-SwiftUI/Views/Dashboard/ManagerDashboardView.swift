@@ -10,11 +10,13 @@ enum DashboardTab: String, CaseIterable {
 struct ManagerDashboardView: View {
     @State private var isMenuOpen: Bool = false
     @State private var selectedTab: DashboardTab = .newSale
-
+    @State private var showDisconnectAlert: Bool = false
+    @EnvironmentObject var loginVM: LoginViewModel  // Access the login view model to disconnect
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .leading) {
-                // Your header and main content here.
+                // Header and main content.
                 VStack(spacing: 0) {
                     // Header with a burger button.
                     HStack {
@@ -31,7 +33,7 @@ struct ManagerDashboardView: View {
                     
                     Divider()
                     
-                    // Your content title and main view
+                    // Content title header.
                     HStack {
                         Text(selectedTab.rawValue)
                             .font(.headline)
@@ -42,7 +44,7 @@ struct ManagerDashboardView: View {
                     
                     Divider()
                     
-                    // Content area switching among tabs.
+                    // Main content area.
                     content
                         .padding()
                     
@@ -65,7 +67,15 @@ struct ManagerDashboardView: View {
                 }
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // Force single-column style on iPad.
+        .navigationViewStyle(StackNavigationViewStyle())
+        .alert("Confirm Disconnect", isPresented: $showDisconnectAlert) {
+            Button("Disconnect", role: .destructive) {
+                loginVM.isAuthenticated = false
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Are you sure you want to disconnect?")
+        }
     }
     
     private var content: some View {
@@ -101,7 +111,28 @@ struct ManagerDashboardView: View {
                 }
                 .foregroundColor(.primary)
             }
+            
             Spacer()
+            
+            // Disconnect Button with confirmation.
+            Button(action: {
+                withAnimation {
+                    showDisconnectAlert = true
+                }
+            }) {
+                HStack {
+                    Image(systemName: "escape")
+                    Text("Disconnect")
+                        .bold()
+                    Spacer()
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal)
+                .background(Color.red.opacity(0.1))
+                .cornerRadius(8)
+            }
+            .foregroundColor(.red)
+            .padding()
         }
         .padding(.top, 60)
     }
@@ -110,5 +141,6 @@ struct ManagerDashboardView: View {
 struct ManagerDashboardView_Previews: PreviewProvider {
     static var previews: some View {
         ManagerDashboardView()
+            .environmentObject(LoginViewModel())
     }
 }
