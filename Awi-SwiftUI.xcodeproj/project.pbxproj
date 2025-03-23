@@ -84,6 +84,11 @@
 		B7C146CD2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */; };
 		B7C146CF2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */; };
 		B7C146D12D905DAA00BDC3C4 /* GameItemInstanceExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146D02D905DAA00BDC3C4 /* GameItemInstanceExtended.swift */; };
+		B7C146D32D90C28F00BDC3C4 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146D22D90C28F00BDC3C4 /* Client.swift */; };
+		B7C146D52D90C2A300BDC3C4 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146D42D90C2A300BDC3C4 /* ClientService.swift */; };
+		B7C146D82D90C2C100BDC3C4 /* ClientsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146D72D90C2C100BDC3C4 /* ClientsListViewModel.swift */; };
+		B7C146DB2D90C2DC00BDC3C4 /* ClientsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146DA2D90C2DC00BDC3C4 /* ClientsListView.swift */; };
+		B7C146DD2D90C2EF00BDC3C4 /* ClientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146DC2D90C2EF00BDC3C4 /* ClientDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +189,11 @@
 		B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStatisticsService.swift; sourceTree = "<group>"; };
 		B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStatisticsView.swift; sourceTree = "<group>"; };
 		B7C146D02D905DAA00BDC3C4 /* GameItemInstanceExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemInstanceExtended.swift; sourceTree = "<group>"; };
+		B7C146D22D90C28F00BDC3C4 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		B7C146D42D90C2A300BDC3C4 /* ClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
+		B7C146D72D90C2C100BDC3C4 /* ClientsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsListViewModel.swift; sourceTree = "<group>"; };
+		B7C146DA2D90C2DC00BDC3C4 /* ClientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsListView.swift; sourceTree = "<group>"; };
+		B7C146DC2D90C2EF00BDC3C4 /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +326,7 @@
 				B7C146C62D8F941C00BDC3C4 /* Seller.swift */,
 				B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */,
 				B7C146D02D905DAA00BDC3C4 /* GameItemInstanceExtended.swift */,
+				B7C146D22D90C28F00BDC3C4 /* Client.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +334,7 @@
 		B76512552D8180620087C97E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7C146D92D90C2D400BDC3C4 /* Client */,
 				B750F0202D88255300AFD59D /* Session */,
 				B750F0172D8824B300AFD59D /* Sales */,
 				B765126A2D8181BB0087C97E /* Components */,
@@ -395,6 +407,7 @@
 		B765126F2D8181F50087C97E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B7C146D62D90C2B600BDC3C4 /* Client */,
 				B7C146B22D8D715B00BDC3C4 /* Session */,
 				B750F0272D882EBB00AFD59D /* Sales */,
 				B765127D2D8182920087C97E /* Sellers */,
@@ -466,6 +479,7 @@
 				B7C146AA2D8D6B0200BDC3C4 /* RetrieveService.swift */,
 				B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */,
 				B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */,
+				B7C146D42D90C2A300BDC3C4 /* ClientService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -495,6 +509,23 @@
 				B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B7C146D62D90C2B600BDC3C4 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				B7C146D72D90C2C100BDC3C4 /* ClientsListViewModel.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		B7C146D92D90C2D400BDC3C4 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				B7C146DA2D90C2DC00BDC3C4 /* ClientsListView.swift */,
+				B7C146DC2D90C2EF00BDC3C4 /* ClientDetailView.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76512582D8180930087C97E /* LoginView.swift in Sources */,
+				B7C146DB2D90C2DC00BDC3C4 /* ClientsListView.swift in Sources */,
 				B7C146C52D8F542000BDC3C4 /* SellerCardView.swift in Sources */,
 				B7C146AB2D8D6B0200BDC3C4 /* RetrieveService.swift in Sources */,
 				B7C146BC2D8F449400BDC3C4 /* CreateSellerDto.swift in Sources */,
@@ -668,6 +700,7 @@
 				B765127F2D81829D0087C97E /* SellerListViewModel.swift in Sources */,
 				B765126E2D8181DC0087C97E /* ErrorView.swift in Sources */,
 				B76512902D8183770087C97E /* SellerService.swift in Sources */,
+				B7C146D52D90C2A300BDC3C4 /* ClientService.swift in Sources */,
 				B750F0162D881FA500AFD59D /* RootView.swift in Sources */,
 				B7C1469F2D8CD71800BDC3C4 /* DepositModels.swift in Sources */,
 				B750F0292D882EC600AFD59D /* MakeNewSaleViewModel.swift in Sources */,
@@ -688,13 +721,16 @@
 				B76512972D8183B80087C97E /* Helpers.swift in Sources */,
 				B76512842D8182DA0087C97E /* APIClient.swift in Sources */,
 				B76512892D81830B0087C97E /* TokenManager.swift in Sources */,
+				B7C146DD2D90C2EF00BDC3C4 /* ClientDetailView.swift in Sources */,
 				B7C146992D8CD1EA00BDC3C4 /* AddGameToDepositView.swift in Sources */,
 				B7C146CF2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift in Sources */,
+				B7C146D32D90C28F00BDC3C4 /* Client.swift in Sources */,
 				B7C146BE2D8F49FC00BDC3C4 /* UpdateSellerDto.swift in Sources */,
 				B76512872D8182F80087C97E /* Endpoints.swift in Sources */,
 				B750F0192D8824C100AFD59D /* MakeNewSaleView.swift in Sources */,
 				B750F0242D882E5B00AFD59D /* GameItemInstance.swift in Sources */,
 				B750F02F2D886D4500AFD59D /* PurchaseService.swift in Sources */,
+				B7C146D82D90C2C100BDC3C4 /* ClientsListViewModel.swift in Sources */,
 				B750F0222D88255F00AFD59D /* StatisticsView.swift in Sources */,
 				B765125B2D8180C30087C97E /* AdminDashboardView.swift in Sources */,
 				B76512992D8184740087C97E /* Game.swift in Sources */,

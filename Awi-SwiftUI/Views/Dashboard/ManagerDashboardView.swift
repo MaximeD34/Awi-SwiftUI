@@ -5,20 +5,20 @@ enum DashboardTab: String, CaseIterable {
     case newSale = "Register a Sale"
     case manageSellers = "Sellers"
     case statistics = "Statistics"
+    case clients = "Clients"  // New tab for Clients
 }
 
 struct ManagerDashboardView: View {
     @State private var isMenuOpen: Bool = false
     @State private var selectedTab: DashboardTab = .collection
     @State private var showDisconnectAlert: Bool = false
-    @EnvironmentObject var loginVM: LoginViewModel  // Access the login view model to disconnect
+    @EnvironmentObject var loginVM: LoginViewModel
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .leading) {
                 // Header and main content.
                 VStack(spacing: 0) {
-                    // Header with a burger button.
                     HStack {
                         Button(action: {
                             withAnimation { isMenuOpen.toggle() }
@@ -89,6 +89,8 @@ struct ManagerDashboardView: View {
                 CatalogueView()
             case .statistics:
                 StatisticsView()
+            case .clients:
+                ClientsListView()  // New Clients list view
             }
         }
     }
@@ -116,9 +118,7 @@ struct ManagerDashboardView: View {
             
             // Disconnect Button with confirmation.
             Button(action: {
-                withAnimation {
-                    showDisconnectAlert = true
-                }
+                withAnimation { showDisconnectAlert = true }
             }) {
                 HStack {
                     Image(systemName: "escape")
