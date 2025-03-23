@@ -7,8 +7,6 @@ enum PurchaseServiceError: Error {
 class PurchaseService {
     func createPurchase(dto: CreatePurchaseDto, completion: @escaping (Result<Void, Error>) -> Void) {
         
-        
-        
         // Create a custom JSONEncoder with the right date encoding strategy.
         let encoder = JSONEncoder()
         let dateFormatter = DateFormatter()
@@ -40,5 +38,17 @@ class PurchaseService {
             //print result for debugging
             print(result)
         }
+    }
+
+    func fetchClientPurchases(clientPublicId: String, completion: @escaping (Result<[ClientPurchase], Error>) -> Void) {
+        let urlString = "\(Endpoints.baseURL)/client/\(clientPublicId)/purchase"
+        guard let url = URL(string: urlString) else { return }
+        APIClient.shared.request(url: url, method: "GET", completion: completion)
+    }
+    
+    func fetchPurchaseInstances(purchasePublicId: String, completion: @escaping (Result<[PurchaseGameItemInstance], Error>) -> Void) {
+        let urlString = "\(Endpoints.baseURL)/purchase/\(purchasePublicId)/instances"
+        guard let url = URL(string: urlString) else { return }
+        APIClient.shared.request(url: url, method: "GET", completion: completion)
     }
 }

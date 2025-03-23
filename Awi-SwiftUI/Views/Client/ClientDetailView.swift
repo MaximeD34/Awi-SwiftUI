@@ -2,9 +2,15 @@ import SwiftUI
 
 struct ClientDetailView: View {
     let client: Client
+    @State private var clientPurchases: [ClientPurchase] = []
+    @State private var purchasesLoading: Bool = false
+    @State private var purchasesErrorMessage: String? = nil
+    
+    private let purchaseService = PurchaseService()
     
     var body: some View {
         Form {
+            // Client Information Section
             Section(header: Text("Client Information")) {
                 HStack {
                     Text("Name")
@@ -30,10 +36,56 @@ struct ClientDetailView: View {
                     Text(client.address)
                         .foregroundColor(.secondary)
                 }
-                // Display additional fields as needed.
+            }
+            
+            // Purchases Section
+            Section(header: Text("Purchases")) {
+                if purchasesLoading {
+                    HStack {
+                        Spacer()
+                        ProgressView("Loading Purchases...")
+                        Spacer()
+                    }
+                } else if let message = purchasesErrorMessage {
+                    Text(message)
+                        .foregroundColor(.red)
+                } else if clientPurchases.isEmpty {
+                    Text("No purchases found.")
+                        .foregroundColor(.secondary)
+                } else {
+                    ForEach(clientPurchases) { purchase in
+                        NavigationLink(destination: PurchaseDetailView(purchase: purchase)) {
+                            Text(formattedDate(purchase.date))
+                        }
+                    }
+                }
             }
         }
         .navigationTitle(client.name)
+        .onAppear {
+            fetchPurchases()
+        }
+    }
+    
+    private func fetchPurchases() {
+        purchasesLoading = true
+        purchasesErrorMessage = nil
+        purchaseService.fetchClientPurchases(clientPublicId: client.id_client_public) { result in
+            DispatchQueue.main.async {
+                purchasesLoading = false
+                switch result {
+                case .success(let purchases):
+                    self.clientPurchases = purchases
+                case .failure(let error):
+                    self.purchasesErrorMessage = error.localizedDescription
+                }
+            }
+        }
+    }
+    
+    private func formattedDate(_ isoDate: String) -> String {
+        // For simplicity, return the ISO date. You can implement DateFormatter if needed.
+        return isoDate
     }
 }
 
