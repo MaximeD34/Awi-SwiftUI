@@ -1,15 +1,15 @@
 import SwiftUI
 
 enum DashboardTab: String, CaseIterable {
+    case collection = "Collection"
     case newSale = "Make a New Sale"
     case manageSellers = "Manage Sellers"
-    case collection = "Collection"
     case statistics = "Statistics"
 }
 
 struct ManagerDashboardView: View {
     @State private var isMenuOpen: Bool = false
-    @State private var selectedTab: DashboardTab = .newSale
+    @State private var selectedTab: DashboardTab = .collection
     @State private var showDisconnectAlert: Bool = false
     @EnvironmentObject var loginVM: LoginViewModel  // Access the login view model to disconnect
     

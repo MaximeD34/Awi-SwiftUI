@@ -8,9 +8,8 @@ struct SellerActionsView: View {
         VStack(spacing: 20) {
             // Seller Info Card with update/delete button on bottom-right.
             ZStack(alignment: .bottomTrailing) {
-                // Background info card with fixed height.
+                // Seller info card with fixed dimensions.
                 VStack(alignment: .leading, spacing: 8) {
-                    // Seller name, email, tel, billing address.
                     Text(seller.name)
                         .font(.title)
                         .fontWeight(.bold)
@@ -45,14 +44,15 @@ struct SellerActionsView: View {
                     }
                 }
                 .padding()
-                .frame(width: 300, height: 140) // Fixed card height and width
-                .clipped() // Ensures content does not expand the frame.
+                .frame(width: 300, height: 140)
+                .clipped()
                 .background(Color(UIColor.secondarySystemBackground))
                 .cornerRadius(12)
                 .padding(.horizontal)
                 
                 // Update/Delete Button positioned at bottom-right.
-                NavigationLink(destination: SellerUpdateView(seller: seller).environmentObject(coordinator)) {
+                NavigationLink(destination: SellerUpdateView(seller: seller)
+                                .environmentObject(coordinator)) {
                     Image(systemName: "pencil")
                         .padding(8)
                         .background(Color.orange)
@@ -62,46 +62,64 @@ struct SellerActionsView: View {
                 .offset(x: -20, y: -5)
             }
             
-            // Action buttons as a horizontal row.
-            HStack(spacing: 16) {
-                NavigationLink(destination: AddGameToDepositView(seller: seller)) {
-                    VStack {
-                        Image(systemName: "tray.and.arrow.down.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        Text("Deposit")
-                            .font(.caption)
-                            .foregroundColor(.white)
+            // Action buttons arranged as a 2x2 grid.
+            VStack(spacing: 16) {
+                HStack(spacing: 16) {
+                    NavigationLink(destination: AddGameToDepositView(seller: seller)) {
+                        VStack {
+                            Image(systemName: "tray.and.arrow.down.fill")
+                                .font(.title)
+                                .foregroundColor(.white)
+                            Text("Deposit")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 140, height: 100)
+                        .background(Color.blue)
+                        .cornerRadius(12)
                     }
-                    .frame(width: 100, height: 100)
-                    .background(Color.blue)
-                    .cornerRadius(12)
+                    NavigationLink(destination: AddGamesOnSaleView(seller: seller)) {
+                        VStack {
+                            Image(systemName: "tag.fill")
+                                .font(.title)
+                                .foregroundColor(.white)
+                            Text("Sale")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 140, height: 100)
+                        .background(Color.blue)
+                        .cornerRadius(12)
+                    }
                 }
-                NavigationLink(destination: AddGamesOnSaleView(seller: seller)) {
-                    VStack {
-                        Image(systemName: "tag.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        Text("Sale")
-                            .font(.caption)
-                            .foregroundColor(.white)
+                HStack(spacing: 16) {
+                    NavigationLink(destination: TakeBackGameView(seller: seller)) {
+                        VStack {
+                            Image(systemName: "arrow.uturn.left.circle.fill")
+                                .font(.title)
+                                .foregroundColor(.white)
+                            Text("Take back")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 140, height: 100)
+                        .background(Color.blue)
+                        .cornerRadius(12)
                     }
-                    .frame(width: 100, height: 100)
-                    .background(Color.blue)
-                    .cornerRadius(12)
-                }
-                NavigationLink(destination: TakeBackGameView(seller: seller)) {
-                    VStack {
-                        Image(systemName: "arrow.uturn.left.circle.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        Text("Take back")
-                            .font(.caption)
-                            .foregroundColor(.white)
+                    // New 4th Button for Seller Statistics.
+                    NavigationLink(destination: SellerStatisticsView(seller: seller)) {
+                        VStack {
+                            Image(systemName: "chart.bar")
+                                .font(.title)
+                                .foregroundColor(.white)
+                            Text("Stats")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 140, height: 100)
+                        .background(Color.green)
+                        .cornerRadius(12)
                     }
-                    .frame(width: 100, height: 100)
-                    .background(Color.blue)
-                    .cornerRadius(12)
                 }
             }
             .padding(.horizontal)

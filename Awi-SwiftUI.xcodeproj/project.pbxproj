@@ -80,6 +80,9 @@
 		B7C146C52D8F542000BDC3C4 /* SellerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */; };
 		B7C146C72D8F941C00BDC3C4 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C62D8F941C00BDC3C4 /* Seller.swift */; };
 		B7C146C92D8F9C8D00BDC3C4 /* GameItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C82D8F9C8D00BDC3C4 /* GameItemDetailView.swift */; };
+		B7C146CB2D8FA2B700BDC3C4 /* SellerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */; };
+		B7C146CD2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */; };
+		B7C146CF2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +179,9 @@
 		B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCardView.swift; sourceTree = "<group>"; };
 		B7C146C62D8F941C00BDC3C4 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		B7C146C82D8F9C8D00BDC3C4 /* GameItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemDetailView.swift; sourceTree = "<group>"; };
+		B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStats.swift; sourceTree = "<group>"; };
+		B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStatisticsService.swift; sourceTree = "<group>"; };
+		B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +312,7 @@
 				B7C146BB2D8F449400BDC3C4 /* CreateSellerDto.swift */,
 				B7C146BD2D8F49FC00BDC3C4 /* UpdateSellerDto.swift */,
 				B7C146C62D8F941C00BDC3C4 /* Seller.swift */,
+				B7C146CA2D8FA2B700BDC3C4 /* SellerStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,6 +375,7 @@
 				B7C146B52D8D76CD00BDC3C4 /* SellerActionsView.swift */,
 				B7C146BF2D8F4A5700BDC3C4 /* SellerUpdateView.swift */,
 				B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */,
+				B7C146CE2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift */,
 			);
 			path = Sellers;
 			sourceTree = "<group>";
@@ -454,6 +462,7 @@
 				B7C146A82D8CDFD700BDC3C4 /* SaleService.swift */,
 				B7C146AA2D8D6B0200BDC3C4 /* RetrieveService.swift */,
 				B7C146B02D8D712D00BDC3C4 /* StatisticsService.swift */,
+				B7C146CC2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -630,12 +639,14 @@
 				B7C146A52D8CDF0F00BDC3C4 /* AddGamesOnSaleViewModel.swift in Sources */,
 				B7C146A92D8CDFD700BDC3C4 /* SaleService.swift in Sources */,
 				B72DCB792D81751B00C6AD7D /* Awi_SwiftUIApp.swift in Sources */,
+				B7C146CB2D8FA2B700BDC3C4 /* SellerStats.swift in Sources */,
 				B76512932D8183940087C97E /* Constants.swift in Sources */,
 				B7C146A12D8CD74000BDC3C4 /* DepositService.swift in Sources */,
 				B7C146AF2D8D70F100BDC3C4 /* StatisticsModel.swift in Sources */,
 				B7C1469B2D8CD1FF00BDC3C4 /* PutGameOnSaleView.swift in Sources */,
 				B750F02B2D886C8300AFD59D /* PurchaseDto.swift in Sources */,
 				B765127C2D8182810087C97E /* GameDetailViewModel.swift in Sources */,
+				B7C146CD2D8FA2CD00BDC3C4 /* SellerStatisticsService.swift in Sources */,
 				B76512622D81812D0087C97E /* GameDetailView.swift in Sources */,
 				B76512722D8182090087C97E /* LoginViewModel.swift in Sources */,
 				B765125D2D8180E40087C97E /* ManagerDashboardView.swift in Sources */,
@@ -674,6 +685,7 @@
 				B76512842D8182DA0087C97E /* APIClient.swift in Sources */,
 				B76512892D81830B0087C97E /* TokenManager.swift in Sources */,
 				B7C146992D8CD1EA00BDC3C4 /* AddGameToDepositView.swift in Sources */,
+				B7C146CF2D8FA2EC00BDC3C4 /* SellerStatisticsView.swift in Sources */,
 				B7C146BE2D8F49FC00BDC3C4 /* UpdateSellerDto.swift in Sources */,
 				B76512872D8182F80087C97E /* Endpoints.swift in Sources */,
 				B750F0192D8824C100AFD59D /* MakeNewSaleView.swift in Sources */,
