@@ -7,7 +7,8 @@ struct CatalogueView: View {
         NavigationView {
             VStack {
                 List(viewModel.games) { game in
-                    NavigationLink(destination: BoardGameDetailView(bgDetail: game.bgDetail)) {
+                    // Change destination from BoardGameDetailView to GameItemDetailView.
+                    NavigationLink(destination: GameItemDetailView(game: game)) {
                         CatalogueRowView(game: game)
                     }
                 }

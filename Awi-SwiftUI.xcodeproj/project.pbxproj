@@ -79,6 +79,7 @@
 		B7C146C32D8F4EC100BDC3C4 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */; };
 		B7C146C52D8F542000BDC3C4 /* SellerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */; };
 		B7C146C72D8F941C00BDC3C4 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C62D8F941C00BDC3C4 /* Seller.swift */; };
+		B7C146C92D8F9C8D00BDC3C4 /* GameItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C146C82D8F9C8D00BDC3C4 /* GameItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,7 @@
 		B7C146C22D8F4EC100BDC3C4 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		B7C146C42D8F542000BDC3C4 /* SellerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCardView.swift; sourceTree = "<group>"; };
 		B7C146C62D8F941C00BDC3C4 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
+		B7C146C82D8F9C8D00BDC3C4 /* GameItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 				B76512612D81812D0087C97E /* GameDetailView.swift */,
 				B7A82A8E2D8975DA001E0026 /* CatalogueRowView.swift */,
 				B7C146B92D8D805C00BDC3C4 /* BoardGameDetailView.swift */,
+				B7C146C82D8F9C8D00BDC3C4 /* GameItemDetailView.swift */,
 			);
 			path = Catalogue;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				B76512812D8182B60087C97E /* SellerDetailViewModel.swift in Sources */,
 				B76512952D8183A90087C97E /* Extensions.swift in Sources */,
 				B750F0262D882E9A00AFD59D /* GameItemInstanceService.swift in Sources */,
+				B7C146C92D8F9C8D00BDC3C4 /* GameItemDetailView.swift in Sources */,
 				B76512972D8183B80087C97E /* Helpers.swift in Sources */,
 				B76512842D8182DA0087C97E /* APIClient.swift in Sources */,
 				B76512892D81830B0087C97E /* TokenManager.swift in Sources */,
