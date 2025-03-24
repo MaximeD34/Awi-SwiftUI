@@ -2,110 +2,103 @@ import SwiftUI
 
 struct MakeNewSaleView: View {
     @StateObject private var viewModel = MakeNewSaleViewModel()
-    @State private var showConfirmAlert = false       // Controls the confirmation prompt
-    @State private var showResultAlert = false        // Controls the result message alert
-    @State private var resultMessage = ""             // Message for the result alert
+    @State private var navigateToSelectClient = false
+    @State private var saleSubmissionResultMessage = ""
+    @State private var showSubmissionAlert = false
     
     var body: some View {
-        VStack {
-            // Search bar
-            HStack {
-                TextField("Enter serial number", text: $viewModel.serialNumber)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onSubmit {
-                        viewModel.searchGameItem()
+        NavigationView {
+            VStack {
+                // Search bar and game items list
+                HStack {
+                    TextField("Enter serial number", text: $viewModel.serialNumber)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onSubmit { viewModel.searchGameItem() }
+                    if viewModel.isLoading {
+                        ProgressView()
                     }
-                if viewModel.isLoading {
-                    ProgressView()
                 }
-            }
-            .padding()
-            
-            // Error display
-            if let errorMessage = viewModel.errorMessage {
-                Text(errorMessage)
-                    .foregroundColor(.red)
-                    .padding(.horizontal)
-            }
-            
-            // List of fetched game items
-            List {
-                ForEach(viewModel.gameItemInstances) { item in
-                    ZStack {
-                        // Use a conditional background to highlight duplicates.
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(item.gameInventoryItem.bg.name)
-                                    .font(.headline)
-                                Text(item.gameInventoryItem.status)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                                Text("Seller: \(item.gameInventoryItem.seller.name)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
+                .padding()
+                
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding(.horizontal)
+                }
+                
+                List {
+                    ForEach(viewModel.gameItemInstances) { item in
+                        ZStack {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.gameInventoryItem.bg.name)
+                                        .font(.headline)
+                                    Text(item.gameInventoryItem.status)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                    Text("Seller: \(item.gameInventoryItem.seller.name)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
+                                Spacer()
+                                Text("$\(item.gameInventoryItem.price, specifier: "%.2f")")
                             }
-                            Spacer()
-                            Text("$\(item.gameInventoryItem.price, specifier: "%.2f")")
+                            .padding(.vertical, 4)
                         }
-                        .padding(.vertical, 4)
+                        .background(viewModel.highlightedItemID == item.id ? Color.yellow.opacity(0.5) : Color.clear)
+                        .animation(.easeInOut, value: viewModel.highlightedItemID)
                     }
-                    .background(
-                        viewModel.highlightedItemID == item.id ?
-                            Color.yellow.opacity(0.5) : Color.clear
-                    )
-                    .animation(.easeInOut, value: viewModel.highlightedItemID)
+                    .onDelete { offsets in viewModel.removeItems(at: offsets) }
                 }
-                .onDelete { offsets in
-                    viewModel.removeItems(at: offsets)
-                }
-            }
-            
-            // Total price display
-            HStack {
-                Spacer()
-                Text("Total: $\(viewModel.totalPrice, specifier: "%.2f")")
-                    .font(.headline)
-                    .padding()
-            }
-            
-            // Cancel and Confirm buttons
-            HStack {
-                Button("Cancel") {
-                    viewModel.cancelSale()
-                }
-                .buttonStyle(PrimaryButtonStyle())
                 
-                Spacer()
-                
-                Button("Confirm") {
-                    showConfirmAlert = true
+                // Total price display
+                HStack {
+                    Spacer()
+                    Text("Total: $\(viewModel.totalPrice, specifier: "%.2f")")
+                        .font(.headline)
+                        .padding()
                 }
-                .buttonStyle(PrimaryButtonStyle())
-            }
-            .padding(.horizontal)
-        }
-        // Confirmation alert (classic iOS modal)
-        .alert("Confirm Sale", isPresented: $showConfirmAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Confirm") {
-                viewModel.confirmSale { result in
-                    switch result {
-                    case .success:
-                        resultMessage = "Sale confirmed successfully!"
-                    case .failure(let error):
-                        resultMessage = "Sale confirmation failed: \(error.localizedDescription)"
+                
+                // Cancel and Confirm buttons
+                HStack {
+                    Button("Cancel") {
+                        viewModel.cancelSale()
                     }
-                    showResultAlert = true
+                    .buttonStyle(PrimaryButtonStyle())
+                    
+                    Spacer()
+                    
+                    Button("Confirm") {
+                        navigateToSelectClient = true
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
                 }
+                .padding(.horizontal)
+                
+                NavigationLink(
+                    destination: SelectClientForSaleView(totalPrice: viewModel.totalPrice, saleCompletion: { selectedClient in
+                        // If no client is selected, use default client public id.
+                        let clientPublicId = selectedClient?.id_client_public ?? "default-client-public-id"
+                        viewModel.confirmSale(clientPublicId: clientPublicId) { result in
+                            switch result {
+                            case .success:
+                                saleSubmissionResultMessage = "Sale confirmed successfully!"
+                            case .failure(let error):
+                                saleSubmissionResultMessage = "Sale confirmation failed: \(error.localizedDescription)"
+                            }
+                            showSubmissionAlert = true
+                        }
+                    }),
+                    isActive: $navigateToSelectClient,
+                    label: { EmptyView() }
+                )
             }
-        } message: {
-            Text("Are you sure you want to validate this sale?")
-        }
-        // Result alert after API call
-        .alert("Result", isPresented: $showResultAlert) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text(resultMessage)
+            .navigationTitle("Make New Sale")
+            .alert("Result", isPresented: $showSubmissionAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(saleSubmissionResultMessage)
+            }
         }
     }
 }
