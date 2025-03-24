@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MakeNewSaleView: View {
     @StateObject private var viewModel = MakeNewSaleViewModel()
-    @State private var navigateToSelectClient = false
+    @State private var isShowingSelectClientSheet = false
     @State private var saleSubmissionResultMessage = ""
     @State private var showSubmissionAlert = false
     
@@ -69,33 +69,36 @@ struct MakeNewSaleView: View {
                     Spacer()
                     
                     Button("Confirm") {
-                        navigateToSelectClient = true
+                        isShowingSelectClientSheet = true
                     }
                     .buttonStyle(PrimaryButtonStyle())
                 }
                 .padding(.horizontal)
-                
-                NavigationLink(
-                    destination: SelectClientForSaleView(totalPrice: viewModel.totalPrice, saleCompletion: { selectedClient in
-                        // If no client is selected, use default client public id.
-                        let clientPublicId = selectedClient?.id_client_public ?? "default-client-public-id"
-                        viewModel.confirmSale(clientPublicId: clientPublicId) { result in
+            }
+            .navigationTitle("Make New Sale")
+            .sheet(isPresented: $isShowingSelectClientSheet) {
+                SelectClientForSaleView(totalPrice: viewModel.totalPrice, saleCompletion: { selectedClient in
+                    // If no client is selected, use default
+                    let clientPublicId = selectedClient?.id_client_public ?? "default-client-public-id"
+                    viewModel.confirmSale(clientPublicId: clientPublicId) { result in
+                        DispatchQueue.main.async {
                             switch result {
                             case .success:
                                 saleSubmissionResultMessage = "Sale confirmed successfully!"
+                                // Dismiss the sheet by setting the binding to false.
+                                isShowingSelectClientSheet = false
                             case .failure(let error):
                                 saleSubmissionResultMessage = "Sale confirmation failed: \(error.localizedDescription)"
                             }
                             showSubmissionAlert = true
                         }
-                    }),
-                    isActive: $navigateToSelectClient,
-                    label: { EmptyView() }
-                )
+                    }
+                })
             }
-            .navigationTitle("Make New Sale")
             .alert("Result", isPresented: $showSubmissionAlert) {
-                Button("OK", role: .cancel) { }
+                Button("OK", role: .cancel) {
+                    // Additional reset logic if needed.
+                }
             } message: {
                 Text(saleSubmissionResultMessage)
             }

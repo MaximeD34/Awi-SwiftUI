@@ -3,7 +3,7 @@ import Combine
 import SwiftUI
 
 class MakeNewSaleViewModel: ObservableObject {
-    @Published var serialNumber: String = "EKLGQ1G0DO"
+    @Published var serialNumber: String = ""
     @Published var gameItemInstances: [GameItemInstance] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -62,7 +62,7 @@ class MakeNewSaleViewModel: ObservableObject {
         let dto = CreatePurchaseDto(
             date: Date(),
             game_item_instance_ids: gameItemInstances.map { $0.idGameItemInstancePublic },
-            id_client_public: selectedClientId  // Use correct parameter label here
+            id_client_public: selectedClientId
         )
         purchaseService.createPurchase(dto: dto) { result in
             DispatchQueue.main.async {

@@ -24,7 +24,7 @@ struct Endpoints {
     }
     
     static func gameItemInstance(serial: String) -> URL {
-        return baseURL.appendingPathComponent("game-item-instance/serial/\(serial)")
+        return baseURL.appendingPathComponent("game-item-instance/serial/\(serial)/sale") //only for games currently on sale
     }
     
     static var purchase: URL {
