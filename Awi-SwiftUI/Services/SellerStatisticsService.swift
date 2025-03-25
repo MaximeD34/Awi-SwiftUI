@@ -9,7 +9,6 @@ enum SellerStatisticsServiceError: Error {
 
 class SellerStatisticsService {
     func fetchStats(for seller: Seller, completion: @escaping (Result<SellerStats, Error>) -> Void) {
-        // Build URL using seller's public id.
         guard let url = URL(string: "\(Endpoints.baseURL)/seller/\(seller.idSellerPublic)/stat") else {
             completion(.failure(SellerStatisticsServiceError.invalidURL))
             return
@@ -18,7 +17,6 @@ class SellerStatisticsService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        // Set the Authorization header (update with actual token logic).
         request.setValue("Bearer YOUR_VALID_TOKEN", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in

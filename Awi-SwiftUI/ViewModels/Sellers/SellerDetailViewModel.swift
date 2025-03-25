@@ -7,7 +7,6 @@ final class SellerDetailViewModel: ObservableObject {
     @Published var sellerTel: String = ""
     @Published var sellerBillingAddress: String = ""
     
-    // Inline validation error messages.
     @Published var nameError: String?
     @Published var emailError: String?
     @Published var telError: String?
@@ -22,7 +21,6 @@ final class SellerDetailViewModel: ObservableObject {
         sellerBillingAddress = seller.billingAddress ?? ""
     }
     
-    // Validates all fields; returns true if valid.
     func validateFields() -> Bool {
         var valid = true
         
@@ -63,8 +61,6 @@ final class SellerDetailViewModel: ObservableObject {
         return valid
     }
     
-    // Saves the seller (updates if seller exists, creates new if nil).
-    // The completion returns a success message, or an error.
     func saveSeller(_ seller: Seller?, completion: @escaping (Result<String, Error>) -> Void) {
         guard validateFields() else {
             completion(.failure(NSError(domain: "ValidationError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Please fix the errors before proceeding."])))
@@ -72,7 +68,6 @@ final class SellerDetailViewModel: ObservableObject {
         }
         
         if let seller = seller {
-            // Create the update DTO and call the update service.
             let dto = UpdateSellerDto(
                 name: sellerName,
                 email: sellerEmail,

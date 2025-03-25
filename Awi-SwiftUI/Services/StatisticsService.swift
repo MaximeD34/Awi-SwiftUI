@@ -6,7 +6,6 @@ enum StatisticsServiceError: Error {
 
 class StatisticsService {
     func fetchStatistics(sessionId: Int, completion: @escaping (Result<Statistics, Error>) -> Void) {
-        // Although the backend is not using sessionId yet, we store it for future use.
         let urlString = "\(Endpoints.baseURL)/company/stat"
         guard let url = URL(string: urlString) else {
             completion(.failure(StatisticsServiceError.failed("Invalid URL")))
@@ -46,7 +45,6 @@ class StatisticsService {
                 completion(.failure(error))
                 return
             }
-            // We assume refresh returns no data, so simply signal success.
             completion(.success(()))
         }.resume()
     }

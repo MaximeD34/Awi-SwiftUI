@@ -1,7 +1,6 @@
 import Foundation
 
 struct SellerStats: Codable, Identifiable {
-    // Use the seller's public id as the identifier.
     var id: String { id_seller_public }
     
     let id_seller_public: String

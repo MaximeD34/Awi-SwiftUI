@@ -25,7 +25,6 @@ class DepositService {
                 completion(.failure(error))
                 return
             }
-            // For simplicity, assume success if no error.
             completion(.success(()))
         }.resume()
     }

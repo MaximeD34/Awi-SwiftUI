@@ -1,7 +1,6 @@
 import Foundation
 
 struct BGDetail: Identifiable, Codable {
-    // We don’t display the id fields, so id is not used in the UI.
     var id: Int? { nil }
     let name: String
     let description: String
@@ -11,7 +10,7 @@ struct BGDetail: Identifiable, Codable {
     let minAge: Int?
     let minPlaytime: Int?
     let idEditorPublic: String?
-    let editorName: String?  // New property to hold the editor's name
+    let editorName: String?
 
     enum CodingKeys: String, CodingKey {
         case name, description
@@ -28,7 +27,6 @@ struct BGDetail: Identifiable, Codable {
         case name
     }
     
-    // Custom initializer for Decodable
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
@@ -48,7 +46,6 @@ struct BGDetail: Identifiable, Codable {
         }
     }
     
-    // Explicit memberwise initializer.
     init(name: String, description: String,
          yearPublished: Int?, minPlayers: Int?, maxPlayers: Int?,
          minAge: Int?, minPlaytime: Int?,
@@ -64,7 +61,6 @@ struct BGDetail: Identifiable, Codable {
         self.editorName = editorName
     }
     
-    // Implement encode(to:) for Encodable conformance.
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)

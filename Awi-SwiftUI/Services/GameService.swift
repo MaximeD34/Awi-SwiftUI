@@ -6,7 +6,6 @@ enum GameServiceError: Error {
 
 class GameService {
     func fetchGames(page: Int, pageSize: Int, completion: @escaping (Result<CatalogueResponse, Error>) -> Void) {
-        // Use the catalogue endpoint "game-inventory-item"
         let url = Endpoints.baseURL.appendingPathComponent("game-inventory-item")
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         components.queryItems = [
@@ -18,7 +17,6 @@ class GameService {
             return
         }
         
-        // Decode CatalogueResponse instead of a bare array.
         APIClient.shared.request(url: urlWithQuery) { (result: Result<CatalogueResponse, Error>) in
             switch result {
             case .success(let response):

@@ -10,7 +10,6 @@ struct GameItemDetailView: View {
     
     // State for showing copied feedback.
     @State private var showCopiedToast = false
-    // Optionally, store the serial that was copied (if you wish to show it).
     @State private var copiedSerial: String?
     
     private let instanceService = GameItemInstanceService()

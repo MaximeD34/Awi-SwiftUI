@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// A custom button style that gives buttons a primary appearance.
 struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -18,7 +17,6 @@ struct PrimaryButtonStyle: ButtonStyle {
     }
 }
 
-/// An extension on Button to easily apply the primary button style.
 extension Button {
     /// Applies the primary button style to the button.
     func primaryButtonStyle() -> some View {

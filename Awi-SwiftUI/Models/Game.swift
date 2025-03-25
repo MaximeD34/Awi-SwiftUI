@@ -5,20 +5,18 @@ struct Game: Codable, Identifiable {
     let title: String
     let description: String
     let price: Double
-    let inventoryCount: Int  // Maps from nb_sale (quantity available)
+    let inventoryCount: Int  // Maps from nb_sale
     let condition: String
     let publicId: String  // id_game_inventory_item_public
 
-    // New boardgame details fields (optional)
     let yearPublished: Int?
     let minPlayers: Int?
     let maxPlayers: Int?
     let minAge: Int?
     let minPlaytime: Int?
     let idEditorPublic: String?
-    let editorName: String?   // New property for the editor's name
+    let editorName: String?  
     
-    // NEW: Add an optional seller property.
     var seller: Seller? = nil
 
     enum CodingKeys: String, CodingKey {
@@ -42,7 +40,6 @@ struct Game: Codable, Identifiable {
         case name
     }
     
-    // Custom initializer for Decodable
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
@@ -61,7 +58,6 @@ struct Game: Codable, Identifiable {
         minPlaytime = try bgContainer.decodeIfPresent(Int.self, forKey: .minPlaytime)
         idEditorPublic = try bgContainer.decodeIfPresent(String.self, forKey: .idEditorPublic)
         
-        // Decode the nested "editor" object to get the editor's name.
         if bgContainer.contains(.editor) {
             let editorContainer = try bgContainer.nestedContainer(keyedBy: BGEditorKeys.self, forKey: .editor)
             editorName = try editorContainer.decodeIfPresent(String.self, forKey: .name)
@@ -69,11 +65,9 @@ struct Game: Codable, Identifiable {
             editorName = nil
         }
         
-        // NEW: Decode the seller property if available.
         seller = try container.decodeIfPresent(Seller.self, forKey: .seller)
     }
     
-    // Implement encode(to:) for Encodable conformance.
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
@@ -97,11 +91,9 @@ struct Game: Codable, Identifiable {
             try editorContainer.encode(editorName, forKey: .name)
         }
         
-        // NEW: Encode the seller if available.
         try container.encodeIfPresent(seller, forKey: .seller)
     }
     
-    // Public initializer for creating sample data in previews or elsewhere.
     init(
         id: Int, title: String, description: String, price: Double,
         inventoryCount: Int, condition: String, publicId: String,

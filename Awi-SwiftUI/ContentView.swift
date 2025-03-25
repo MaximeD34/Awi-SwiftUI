@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Injecting the login view model as a state object.
     @StateObject private var loginVM = LoginViewModel()
     
     var body: some View {

@@ -7,7 +7,6 @@ enum PurchaseServiceError: Error {
 class PurchaseService {
     func createPurchase(dto: CreatePurchaseDto, completion: @escaping (Result<Void, Error>) -> Void) {
         
-        // Create a custom JSONEncoder with the right date encoding strategy.
         let encoder = JSONEncoder()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -22,7 +21,6 @@ class PurchaseService {
             return
         }
         
-        //print body for debugging
         print(String(data: body, encoding: .utf8) ?? "Invalid body")
         
         APIClient.shared.request(url: Endpoints.purchase, method: "POST", body: body) { (result: Result<EmptyResponse, Error>) in
@@ -31,11 +29,9 @@ class PurchaseService {
                 completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
-                //print error for debugging
                 print(error)
             }
             
-            //print result for debugging
             print(result)
         }
     }

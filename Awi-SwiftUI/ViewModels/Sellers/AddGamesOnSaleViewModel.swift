@@ -67,7 +67,6 @@ class AddGamesOnSaleViewModel: ObservableObject {
     private let saleService = SaleService()  // New sale service instance
     
     func fetchGames(for seller: Seller) {
-        // Build the storage endpoint URL for the selected seller.
         let url = Endpoints.baseURL.appendingPathComponent("storage/\(seller.idSellerPublic)")
         APIClient.shared.request(url: url) { (result: Result<[SaleGame], Error>) in
             DispatchQueue.main.async {

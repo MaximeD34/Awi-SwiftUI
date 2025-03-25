@@ -32,7 +32,6 @@ struct PurchaseExtended: Decodable {
     let date: Date?
     let idClientPublic: String
     let idManagerPublic: String
-    // Additional client details can be added later if needed.
     
     enum CodingKeys: String, CodingKey {
         case idPurchase = "id_purchase"

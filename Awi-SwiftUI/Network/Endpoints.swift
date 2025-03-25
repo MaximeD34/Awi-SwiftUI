@@ -31,10 +31,8 @@ struct Endpoints {
         return baseURL.appendingPathComponent("purchase")
     }
     
-    // New endpoint for fetching instances by game inventory item public ID.
     static func gameItemInstances(publicId: String) -> URL {
         return baseURL.appendingPathComponent("game-inventory-item/\(publicId)/instances")
     }
     
-    // Define other endpoints as needed.
 }

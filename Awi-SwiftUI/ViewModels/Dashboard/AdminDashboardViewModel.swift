@@ -9,9 +9,7 @@
 import Foundation
 
 class AdminDashboardViewModel: ObservableObject {
-    // Properties to store dashboard data can be added here.
     
     func fetchStatistics() {
-        // Fetch overall statistics from a service or API.
     }
 }

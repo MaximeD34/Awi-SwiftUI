@@ -40,22 +40,16 @@ struct AuthResponse: Decodable {
 
 class AuthService {
     func login(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
-        // Create a login request body
         let loginData = ["name": email, "password": password]
         guard let body = try? JSONSerialization.data(withJSONObject: loginData, options: []) else {
             completion(.failure(AuthError.unknown))
             return
         }
         
-//        //print the body for debugging
-//        print("body", String(data: body, encoding: .utf8) ?? "")
-
        APIClient.shared.request(url: Endpoints.login, method: "POST", body: body) { (result: Result<AuthResponse, Error>) in
             switch result {
             case .success(let authResponse):
-                // Check for DTO errors
                 if let errors = authResponse.errors, !errors.isEmpty {
-                    // Handle DTO errors
                     print("Login failed with DTO errors: \(errors)")
                     completion(.failure(AuthError.dtoError(errors.joined(separator: ", "))))
                     return
@@ -66,7 +60,6 @@ class AuthService {
                     return
                 }
 
-                // Extract the auth token from the cookies
                 if let authCookie = APIClient.shared.getCookie(named: "auth") {
                     TokenManager.shared.token = authCookie
 
@@ -85,7 +78,6 @@ class AuthService {
                     return
                 }
             case .failure(let error):
-                //print the return request for
                 print("error",error)
                 completion(.failure(error))
             }

@@ -14,7 +14,6 @@ class APIClient {
         request.httpMethod = method
         request.httpBody = body
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        // Add JWT token if available
         if let token = TokenManager.shared.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
@@ -30,7 +29,6 @@ class APIClient {
                 return
             }
             
-            // Debug print the raw response as string
             if let jsonString = String(data: data, encoding: .utf8) {
                 print("Raw Response Data: \(jsonString)")
             }
@@ -39,7 +37,6 @@ class APIClient {
             }
             
             let decoder = JSONDecoder()
-            // Custom date decoding strategy to support fractional seconds.
             let isoFormatter = ISO8601DateFormatter()
             isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
             decoder.dateDecodingStrategy = .custom({ decoder in

@@ -8,5 +8,4 @@
 import Foundation
 
 class GameDetailViewModel: ObservableObject {
-    // Add any additional business logic for game details.
 }
