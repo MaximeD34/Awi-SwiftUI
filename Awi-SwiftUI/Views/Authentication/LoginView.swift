@@ -13,7 +13,8 @@ struct LoginView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            Text("Welcome to Awi-SwiftUI")
+            Text("Awi Boardgame Store")
+                .fontWeight(.bold)
                 .font(.largeTitle)
             
             TextField("Email", text: $viewModel.email)

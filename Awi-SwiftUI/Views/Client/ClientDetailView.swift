@@ -84,9 +84,42 @@ struct ClientDetailView: View {
     }
     
     private func formattedDate(_ isoDate: String) -> String {
-        // For simplicity, return the ISO date. You can implement DateFormatter if needed.
-        return isoDate
+    // Example input: "2025-03-23T17:54:54.979Z"
+    let parts = isoDate.components(separatedBy: "T")
+    guard parts.count == 2 else { return isoDate }
+    
+    // Format the date part by replacing '-' with '/'
+    let datePart = parts[0].replacingOccurrences(of: "-", with: "/")
+    
+    // Process the time part, split by ":"
+    let timeComponents = parts[1].components(separatedBy: ":")
+    guard timeComponents.count >= 2 else { return datePart }
+    var hour = timeComponents[0]
+
+    //add 1 hour to the time to match the timezone
+    let hourInt = Int(hour) ?? 0
+    var newHour = hourInt + 1
+    if newHour > 23 {
+        newHour = 0
     }
+    hour = String(newHour)
+    let minute = timeComponents[1]
+    
+    return "\(datePart) at \(hour)h\(minute)"
+}
+
+    // private func formattedDate(_ isoDate: String) -> String {
+    //     let isoFormatter = ISO8601DateFormatter()
+    //     if let date = isoFormatter.date(from: isoDate){
+    //         let formatter = DateFormatter()
+    //         formatter.dataStyle = .long
+    //         formatter.timeStyle = .none 
+    //         formatter.locale = Locale(identifier: "fr_FR")
+    //         return formatter.string(from: date)
+    //     } else {
+    //         return isoDate
+    //     }
+    // }
 }
 
 struct ClientDetailView_Previews: PreviewProvider {

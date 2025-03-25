@@ -6,7 +6,7 @@ class ClientsListViewModel: ObservableObject {
     @Published var currentPage: Int = 1
     @Published var searchName: String = ""
     
-    let pageSize: Int = 10  // adjust page size as needed
+    let pageSize: Int = 9
     
     private let clientService = ClientService()
     
